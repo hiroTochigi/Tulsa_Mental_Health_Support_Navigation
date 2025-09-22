@@ -9,6 +9,9 @@
   "banner.text988": "Text 988 now",
   "banner.call988Aria": "Call 988 now",
   "banner.text988Aria": "Text 988 now",
+  "banner.emergencyPrefix": "If this is a <mark>medical emergency</mark> or there is imminent danger to yourself or others, call 911.",
+  "banner.mentalCrisisLabel": "If you are in a mental health crisis:",
+  "banner.medicalEmergency": "medical emergency",
 
   "A.question": "A. Is anyone in immediate danger, or is this a medical emergency?",
   "A.yes": "Yes (Emergency)",

@@ -22,29 +22,42 @@
         data-i18n-attr="aria-label:banner.label"
       >
         <div class="icon" aria-hidden="true">!</div>
-        <div>
-          <strong data-i18n="banner.urgent"></strong>
-          <span data-i18n="banner.emergencyHtml"
-            >もしこれが<mark>医療的な緊急事態</mark>であるか、あなた自身または他者に差し迫った危険がある場合は、<span
-              class="phone"
-              >911</span
-            >に電話してください。メンタルヘルスの危機にある場合は、</span
-          >
+
+        <div class="banner-grid">
+          <!-- 左（=上）: 911までの文章だけ -->
+          <div class="primary">
+            <strong data-i18n="banner.urgent"></strong>
+            <span data-i18n="banner.emergencyPrefix">
+              もしこれが<mark>医療的な緊急事態</mark>であるか、あなた自身または他者に差し迫った危険がある場合は、
+              <span class="phone">911</span>に電話してください。
+            </span>
+          </div>
+
+          <!-- 右（=下）: メンタルヘルス用ラベル＋ボタン群 -->
+          <div class="actions" aria-label="988 actions">
+            <span class="crisis-label" data-i18n="banner.mentalCrisisLabel">
+              メンタルヘルスの危機にある場合は：
+            </span>
+            <div class="btn-row">
+              <a
+                class="btn btn-danger btn-flex"
+                href="tel:988"
+                data-i18n-attr="aria-label:banner.call988Aria"
+                data-i18n="banner.call988"
+              >
+                今すぐ988に電話
+              </a>
+              <a
+                class="btn btn-outline btn-flex"
+                href="sms:988"
+                data-i18n-attr="aria-label:banner.text988Aria"
+                data-i18n="banner.text988"
+              >
+                今すぐ988にテキスト
+              </a>
+            </div>
+          </div>
         </div>
-        <a
-          class="btn btn-flex btn-danger"
-          href="tel:988"
-          data-i18n-attr="aria-label:banner.call988Aria"
-          data-i18n="banner.call988"
-          >今すぐ988に電話</a
-        >
-        <a
-          class="btn btn-flex btn-outline"
-          href="sms:988"
-          data-i18n-attr="aria-label:banner.text988Aria"
-          data-i18n="banner.text988"
-          >今すぐ988にテキスト</a
-        >
       </div>
 
       <main class="card" aria-live="polite">

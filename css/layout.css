@@ -47,3 +47,18 @@
   background: #0b1427;
   border: 1px solid #223049;
 }
+
+.primary {
+  grid-area: primary;
+}
+.actions {
+  grid-area: actions;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.crisis-label {
+  white-space: nowrap;
+  font-weight: 600;
+}
