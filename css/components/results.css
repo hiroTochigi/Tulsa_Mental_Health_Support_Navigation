@@ -1,0 +1,25 @@
+/* Results component styles */
+.result h3 {
+  margin: 6px 0;
+}
+.result ul {
+  margin: 6px 0 0 1em;
+}
+.result .cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* 緊急系の装飾 */
+.emergency {
+  border: 2px solid rgba(244, 63, 94, 0.6);
+  background: rgba(244, 63, 94, 0.08);
+}
+.emergency h3 {
+  color: #fecaca;
+}
+.emergency[role="alert"] {
+  outline: 2px solid var(--accent);
+}

@@ -1,0 +1,48 @@
+/* Button component styles */
+button,
+.btn {
+  cursor: pointer;
+  background: #0ea5e9;
+  border: none;
+  color: white;
+  padding: 12px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.btn:hover,
+button:hover {
+  filter: brightness(1.1);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #334155;
+  color: #e2e8f0;
+}
+.btn-danger {
+  background: var(--accent);
+}
+.btn-success {
+  background: var(--ok);
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-flex {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}

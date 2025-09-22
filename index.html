@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>タルサ市 メンタルヘルス支援ナビ（MVP）</title>
+    <!-- Base & layout -->
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <!-- Components -->
+    <link rel="stylesheet" href="css/components/buttons.css" />
+    <link rel="stylesheet" href="css/components/banner.css" />
+    <link rel="stylesheet" href="css/components/forms.css" />
+    <link rel="stylesheet" href="css/components/results.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="banner"
+        role="region"
+        data-i18n-attr="aria-label:banner.label"
+      >
+        <div class="icon" aria-hidden="true">!</div>
+        <div>
+          <strong data-i18n="banner.urgent"></strong>
+          <span data-i18n="banner.emergencyHtml"
+            >もしこれが<mark>医療的な緊急事態</mark>であるか、あなた自身または他者に差し迫った危険がある場合は、<span
+              class="phone"
+              >911</span
+            >に電話してください。メンタルヘルスの危機にある場合は、</span
+          >
+        </div>
+        <a
+          class="btn btn-flex btn-danger"
+          href="tel:988"
+          data-i18n-attr="aria-label:banner.call988Aria"
+          data-i18n="banner.call988"
+          >今すぐ988に電話</a
+        >
+        <a
+          class="btn btn-flex btn-outline"
+          href="sms:988"
+          data-i18n-attr="aria-label:banner.text988Aria"
+          data-i18n="banner.text988"
+          >今すぐ988にテキスト</a
+        >
+      </div>
+
+      <main class="card" aria-live="polite">
+        <h1 class="title" data-i18n="title">タルサ市 メンタルヘルス支援ナビ</h1>
+        <p class="subtitle" data-i18n="subtitle">
+          このツールは、あなたのニーズに合った支援につながるためのガイドです。いくつかの質問にお答えください（個人情報は保存しません）。
+        </p>
+
+        <!-- STEP A: 第一次トリアージ -->
+        <section id="stepA" class="step" aria-labelledby="qA">
+          <div class="q" id="qA" data-i18n="A.question">
+            A.
+            あなた、または他の誰かが差し迫った危険にありますか？または医学的な緊急事態ですか？
+          </div>
+          <div class="btn-row">
+            <button
+              class="btn btn-danger"
+              data-next="emergency"
+              data-i18n="A.yes"
+            >
+              はい（緊急）
+            </button>
+            <button class="btn" data-next="stepB" data-i18n="A.no">
+              いいえ
+            </button>
+          </div>
+        </section>
+
+        <section
+          id="emergency"
+          class="result emergency hidden"
+          role="alert"
+          aria-live="assertive"
+        >
+          <h3 data-i18n="emergency.title">
+            今すぐ以下に連絡してください（このツールは緊急用ではありません）
+          </h3>
+          <ul>
+            <li>
+              <a
+                class="btn btn-danger"
+                href="tel:911"
+                data-i18n="emergency.call911"
+                >911 に電話</a
+              >
+            </li>
+            <li>
+              <a
+                class="btn btn-danger"
+                href="tel:988"
+                data-i18n="emergency.call988"
+                >988 に電話</a
+              >
+              /
+              <a
+                class="btn btn-outline"
+                href="sms:988"
+                data-i18n="emergency.text988"
+                >988 にテキスト</a
+              >
+            </li>
+            <li>
+              <span data-i18n="emergency.copes">COPES クライシスライン：</span
+              ><a
+                class="btn btn-outline"
+                href="tel:9187444800"
+                data-i18n="emergency.copesNumberBtn"
+                >918-744-4800 に電話</a
+              >
+            </li>
+          </ul>
+          <p class="footer" data-i18n="emergency.footer">
+            ※ 上記は標準的な医療安全手順に基づく推奨です。
+          </p>
+          <div class="divider"></div>
+          <button class="btn btn-outline" data-reset data-i18n="reset">
+            最初の質問に戻る
+          </button>
+        </section>
+
+        <!-- STEP B: 年齢 -->
+        <section id="stepB" class="step hidden" aria-labelledby="qB">
+          <div class="q" id="qB" data-i18n="B.question">
+            B. 助けを必要としているのは18歳以上の方ですか？
+          </div>
+          <div class="btn-row">
+            <button class="btn" data-next="stepC" data-i18n="B.adultYes">
+              はい（成人）
+            </button>
+            <button
+              class="btn btn-outline"
+              data-next="youth"
+              data-i18n="B.minorNo"
+            >
+              いいえ（未成年）
+            </button>
+          </div>
+        </section>
+
+        <section id="youth" class="result hidden">
+          <h3 data-i18n="youth.title">若年層向けの24時間支援</h3>
+          <ul>
+            <li>
+              <span data-i18n="youth.yesTulsa">YES Tulsa（5～17歳）：</span>
+              <!-- YES Tulsa: 見えるのは番号、説明は aria-label を各言語で -->
+              <a
+                class="btn btn-outline"
+                href="tel:+19187794357"
+                data-i18n-attr="aria-label:youth.yesTulsaCallAria"
+              >
+                918-779-HELP <span class="sr-only">(918-779-4357)</span>
+              </a>
+            </li>
+            <li>
+              <span data-i18n="youth.calm"
+                >CALM Center（10～17歳・短期入院/危機安定化）：</span
+              ><a href="tel:9183942256" class="btn btn-outline">918-394-2256</a>
+            </li>
+          </ul>
+          <p data-i18n="youth.note">
+            未成年の方は、成人外来ではなく上記の専門支援に直接つながるのが適切です。
+          </p>
+          <div class="divider"></div>
+          <button class="btn btn-outline" data-reset data-i18n="reset">
+            最初の質問に戻る
+          </button>
+        </section>
+
+        <!-- STEP C: 成人・緊急度 -->
+        <section id="stepC" class="step hidden" aria-labelledby="qC">
+          <div class="q" id="qC" data-i18n="C.question">
+            C.
+            あなたは危機的な状況にあり、今すぐ、緊急に誰かと話す必要がありますか？
+          </div>
+          <div class="btn-row">
+            <button
+              class="btn btn-danger"
+              data-next="adult-crisis"
+              data-i18n="C.yes"
+            >
+              はい（今すぐ支援が必要）
+            </button>
+            <button class="btn" data-next="stepD" data-i18n="C.no">
+              いいえ（落ち着いて相談先を探したい）
+            </button>
+          </div>
+        </section>
+
+        <section id="adult-crisis" class="result hidden">
+          <h3 data-i18n="adultCrisis.title">24時間の緊急オプション（成人）</h3>
+          <div class="grid">
+            <div>
+              <h4 data-i18n="adultCrisis.copes.h">
+                ① 今すぐ電話/モバイル対応（COPES）
+              </h4>
+              <p class="subtitle" data-i18n="adultCrisis.copes.subtitle">
+                タルサ郡の24時間電話相談と必要に応じたモバイル危機対応
+              </p>
+              <div class="cta">
+                <a
+                  class="btn"
+                  href="tel:9187444800"
+                  data-i18n="adultCrisis.copes.callBtn"
+                  >COPESに電話（918-744-4800）</a
+                >
+              </div>
+              <span class="pill" data-i18n="adultCrisis.copes.pill1"
+                >外出困難</span
+              ><span class="pill" data-i18n="adultCrisis.copes.pill2"
+                >移動手段がない</span
+              >
+            </div>
+            <div>
+              <h4 data-i18n="adultCrisis.urc.h">
+                ② 24時間ウォークイン（Grand Mental Health – URC）
+              </h4>
+              <p class="subtitle" data-i18n="adultCrisis.urc.subtitle">
+                予約不要。現在の環境から離れて直接支援を受けたい場合に有効
+              </p>
+              <div class="cta">
+                <a
+                  class="btn"
+                  href="#"
+                  aria-disabled="true"
+                  data-i18n="adultCrisis.urc.visitBtn"
+                  data-i18n-attr="title:adultCrisis.urc.visitBtnTitle"
+                  >URC を訪問（24h / 予約不要）</a
+                >
+              </div>
+              <span class="pill" data-i18n="adultCrisis.urc.pill1"
+                >その場で対面</span
+              ><span class="pill" data-i18n="adultCrisis.urc.pill2"
+                >いつでも受付</span
+              >
+            </div>
+          </div>
+          <div class="divider"></div>
+          <button class="btn btn-outline" data-reset data-i18n="reset">
+            最初の質問に戻る
+          </button>
+        </section>
+
+        <!-- STEP D: 成人・特定ニーズ -->
+        <section id="stepD" class="step hidden" aria-labelledby="qD">
+          <div class="q" id="qD" data-i18n="D.question">
+            D. 本日、助けを求めている主な理由は何ですか？（複数選択可）
+          </div>
+          <div class="checkboxes" role="group" aria-labelledby="qD">
+            <label
+              ><input type="checkbox" value="detox" /><span
+                data-i18n="D.options.detox"
+                >薬物やアルコールの使用を安全にやめたい（デトックス）</span
+              ></label
+            >
+            <label
+              ><input type="checkbox" value="psychosis" /><span
+                data-i18n="D.options.psychosis"
+                >幻覚や深刻な混乱を経験している</span
+              ></label
+            >
+            <label
+              ><input type="checkbox" value="therapy" /><span
+                data-i18n="D.options.therapy"
+                >カウンセリングやセラピーが必要</span
+              ></label
+            >
+            <label
+              ><input type="checkbox" value="meds" /><span
+                data-i18n="D.options.meds"
+                >薬のことで助けが必要</span
+              ></label
+            >
+          </div>
+          <div class="btn-row">
+            <button
+              class="btn btn-success"
+              id="evaluate"
+              data-i18n="D.showResults"
+            >
+              結果を表示
+            </button>
+          </div>
+        </section>
+
+        <section id="highcare" class="result hidden emergency">
+          <h3 data-i18n="highcare.title">至急の医療評価を推奨</h3>
+          <p data-i18n="highcare.body">
+            選択された内容から、外来クリニックでは対応困難な可能性があります。以下のいずれかに<strong>至急</strong>ご連絡ください。
+          </p>
+          <ul>
+            <li>
+              <a
+                class="btn btn-outline"
+                href="tel:9187444800"
+                data-i18n="highcare.copesBtn"
+                >918-744-4800 に電話</a
+              >
+            </li>
+            <li data-i18n="highcare.er">病院の救急外来（ER）を受診</li>
+          </ul>
+          <div class="divider"></div>
+          <button class="btn btn-outline" data-reset data-i18n="reset">
+            最初の質問に戻る
+          </button>
+        </section>
+
+        <!-- STEP E: 非危機・定型ニーズ（成人） -->
+        <section id="routine" class="result hidden">
+          <h3 data-i18n="routine.title">
+            通常の外来サービスにつながる（成人）
+          </h3>
+          <p data-i18n="routine.body">
+            以下の機関は、カウンセリング、薬物療法管理、SUDサポートなどの定型外来を提供しています。
+          </p>
+          <ul>
+            <li>
+              <strong data-i18n="routine.crs.name"
+                >CRS（Counseling & Recovery Services）</strong
+              >
+              —
+              <span class="pill" data-i18n="routine.crs.pill.uninsured"
+                >未保険者OK</span
+              >
+              <span class="pill" data-i18n="routine.crs.pill.sliding"
+                >スライディングスケール</span
+              >
+              <div class="cta">
+                <a
+                  class="btn"
+                  href="#"
+                  aria-disabled="true"
+                  data-i18n="routine.crs.apply"
+                  data-i18n-attr="title:routine.crs.applyTitle"
+                  >予約を申し込む</a
+                >
+                <a
+                  class="btn btn-outline"
+                  href="tel:"
+                  data-i18n="routine.crs.phoneBtn"
+                  >機関の電話番号を見る</a
+                >
+              </div>
+            </li>
+            <li>
+              <strong data-i18n="routine.fcs.name"
+                >FCS（Family & Children’s Services）</strong
+              >
+              —
+              <span class="pill" data-i18n="routine.fcs.pill.sliding"
+                >スライディングスケール</span
+              >
+            </li>
+            <li>
+              <strong data-i18n="routine.chc.name"
+                >CHC（Community Health Connection）</strong
+              >
+              —
+              <span class="pill" data-i18n="routine.chc.pill.pc"
+                >プライマリケア統合</span
+              >
+              <span class="pill" data-i18n="routine.chc.pill.sliding"
+                >スライディングスケール</span
+              >
+            </li>
+          </ul>
+          <div class="divider"></div>
+          <button class="btn btn-outline" data-reset data-i18n="reset">
+            最初の質問に戻る
+          </button>
+        </section>
+
+        <!-- 安心メッセージ -->
+        <section class="step" aria-labelledby="reassure-h">
+          <h2
+            id="reassure-h"
+            class="title"
+            style="font-size: 20px; margin: 0 0 6px"
+            data-i18n="reassure.title"
+          >
+            費用・言語・プライバシーについて
+          </h2>
+          <p class="subtitle" data-i18n="reassure.subtitle">
+            あなたは一人ではありません。保険の有無や支払い能力にかかわらず、利用できる支援があります。多くのサービスは無料、または収入に応じた割引料金で提供されています。
+          </p>
+          <ul>
+            <li data-i18n="reassure.lang">
+              言語：英語/スペイン語に対応。その他の言語は無料通訳を手配可能。連絡時に希望言語をお伝えください。
+            </li>
+            <li data-i18n="reassure.immigration">
+              移民ステータス：緊急の危機支援サービスを受けるために市民権の証明は不要です。プライバシーは守られます。
+            </li>
+          </ul>
+        </section>
+
+        <!-- FAQ -->
+        <section class="step" aria-labelledby="faq-h">
+          <h2
+            id="faq-h"
+            class="title"
+            style="font-size: 20px; margin: 0 0 6px"
+            data-i18n="faq.title"
+          >
+            FAQ
+          </h2>
+          <div class="grid" style="grid-template-columns: 1fr; gap: 10px">
+            <details>
+              <summary data-i18n="faq.cost.q">
+                費用はいくらかかりますか？
+              </summary>
+              <p data-i18n="faq.cost.a">
+                危機サービスは無料です。通常のケアでも、所得に応じた割引（スライディングスケール）が利用できます。費用が障壁になるべきではありません。
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faq.address.q">
+                定まった住所がなくても大丈夫ですか？
+              </summary>
+              <p data-i18n="faq.address.a">
+                ホームレス状態でもサービスの対象です。固定の住所は必要ありません。
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faq.privacy.q">
+                私の情報は秘密にされますか？
+              </summary>
+              <p data-i18n="faq.privacy.a">
+                サービスは機密であり、情報は法律で保護されます。危害のおそれがある場合を除き、書面での同意なしに情報が共有されることはありません。
+              </p>
+            </details>
+          </div>
+          <p class="footer" data-i18n="faq.footer">
+            免責：このツールは緊急対応用ではありません。緊急時は 911 / 988 /
+            COPES に直接連絡してください。地域の提供範囲（タルサ郡
+            ほか）にご注意ください。
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script>
+      const $ = (s, root = document) => root.querySelector(s);
+      const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
+
+      function hideAll(ids) {
+        ids.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.add("hidden");
+        });
+      }
+      function show(id) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.remove("hidden");
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+      function resetAll() {
+        $$(
+          "#stepB, #stepC, #stepD, #youth, #adult-crisis, #emergency, #highcare, #routine"
+        ).forEach((el) => el.classList.add("hidden"));
+        $$("#stepA input[type=checkbox]").forEach((cb) => (cb.checked = false));
+        show("stepA");
+        $("#stepA button").focus();
+      }
+
+      // next buttons
+      $$("#stepA [data-next], #stepB [data-next], #stepC [data-next]").forEach(
+        (btn) => {
+          btn.addEventListener("click", (e) => {
+            const target = e.currentTarget.getAttribute("data-next");
+            if (target === "emergency") {
+              hideAll([
+                "stepB",
+                "stepC",
+                "stepD",
+                "youth",
+                "adult-crisis",
+                "highcare",
+                "routine",
+              ]);
+              show("emergency");
+              return;
+            }
+            if (target === "stepB") {
+              hideAll([
+                "emergency",
+                "youth",
+                "stepC",
+                "stepD",
+                "adult-crisis",
+                "highcare",
+                "routine",
+              ]);
+            }
+            if (target === "stepC") {
+              hideAll([
+                "emergency",
+                "youth",
+                "stepD",
+                "adult-crisis",
+                "highcare",
+                "routine",
+              ]);
+            }
+            if (target === "adult-crisis") {
+              hideAll(["emergency", "youth", "stepD", "highcare", "routine"]);
+            }
+            show(target);
+          });
+        }
+      );
+
+      // Youth or adult crisis panels have reset buttons
+      $$(
+        "#emergency [data-reset], #youth [data-reset], #adult-crisis [data-reset], #highcare [data-reset], #routine [data-reset]"
+      ).forEach((btn) => {
+        btn.addEventListener("click", resetAll);
+      });
+
+      // Evaluate high care (Step D)
+      $("#evaluate").addEventListener("click", () => {
+        const values = $$("#stepD input[type=checkbox]:checked").map(
+          (cb) => cb.value
+        );
+        hideAll(["highcare", "routine"]);
+        if (values.includes("detox") || values.includes("psychosis")) {
+          show("highcare");
+        } else {
+          show("routine");
+        }
+      });
+
+      // Start at Step A
+      resetAll();
+
+      // Keyboard hints for accessibility
+      document.addEventListener("keydown", (e) => {
+        if (
+          (e.key === "/" || e.key === "?") &&
+          !e.target.closest("input,textarea")
+        ) {
+          e.preventDefault();
+          const b = $("#stepA button");
+          b && b.focus();
+        }
+      });
+    </script>
+  </body>
+</html>

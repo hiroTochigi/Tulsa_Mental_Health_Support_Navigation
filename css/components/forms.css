@@ -1,0 +1,33 @@
+/* Form component styles */
+.q {
+  margin: 8px 0 6px;
+  font-weight: 700;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px 0;
+}
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+input[type="checkbox"] {
+  inline-size: 18px;
+  block-size: 18px;
+}
+
+/* FAQなどの開閉 */
+details {
+  background: #0b1427;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 10px;
+}
+details summary {
+  cursor: pointer;
+  font-weight: 700;
+}
