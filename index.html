@@ -92,50 +92,46 @@
           role="alert"
           aria-live="assertive"
         >
-          <h3 data-i18n="emergency.title">
-            今すぐ以下に連絡してください（このツールは緊急用ではありません）
-          </h3>
+          <h3 data-i18n="emergency.title"></h3>
           <ul>
             <li>
-              <a
-                class="btn btn-danger"
-                href="tel:911"
-                data-i18n="emergency.call911"
-                >911 に電話</a
-              >
+              <div class="actions">
+                <a
+                  class="btn btn-danger"
+                  href="tel:911"
+                  data-i18n="emergency.call911"
+                ></a>
+              </div>
             </li>
             <li>
-              <a
-                class="btn btn-danger"
-                href="tel:988"
-                data-i18n="emergency.call988"
-                >988 に電話</a
-              >
-              /
-              <a
-                class="btn btn-outline"
-                href="sms:988"
-                data-i18n="emergency.text988"
-                >988 にテキスト</a
-              >
+              <!-- 「/」は使わず、ボタンを並べる -->
+              <div class="actions">
+                <a
+                  class="btn btn-danger"
+                  href="tel:988"
+                  data-i18n="emergency.call988"
+                ></a>
+                <a
+                  class="btn btn-outline"
+                  href="sms:988"
+                  data-i18n="emergency.text988"
+                ></a>
+              </div>
             </li>
             <li>
-              <span data-i18n="emergency.copes">COPES クライシスライン：</span
-              ><a
-                class="btn btn-outline"
-                href="tel:9187444800"
-                data-i18n="emergency.copesNumberBtn"
-                >918-744-4800 に電話</a
-              >
+              <span class="label" data-i18n="emergency.copes"></span>
+              <div class="actions">
+                <a
+                  class="btn btn-outline"
+                  href="tel:+19187444800"
+                  data-i18n="emergency.copesNumberBtn"
+                ></a>
+              </div>
             </li>
           </ul>
-          <p class="footer" data-i18n="emergency.footer">
-            ※ 上記は標準的な医療安全手順に基づく推奨です。
-          </p>
+          <p class="footer" data-i18n="emergency.footer"></p>
           <div class="divider"></div>
-          <button class="btn btn-outline" data-reset data-i18n="reset">
-            最初の質問に戻る
-          </button>
+          <button class="btn btn-outline" data-reset data-i18n="reset"></button>
         </section>
 
         <!-- STEP B: 年齢 -->
