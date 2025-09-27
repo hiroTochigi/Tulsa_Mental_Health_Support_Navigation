@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>24-hour crisis options (Adults)</title>
+    <style>
+      :root {
+        --bg: #0f172a; /* dark */
+        --card: #111827;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --accent: #38bdf8; /* primary button */
+        --danger: #ef4444; /* emergency button */
+        --chip: #1f2937;
+        --chip-border: #334155;
+        --ok: #10b981;
+        --focus: #f59e0b;
+        color-scheme: dark;
+      }
+      .light {
+        --bg: #f8fafc; /* light */
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #0284c7;
+        --danger: #dc2626;
+        --chip: #f1f5f9;
+        --chip-border: #cbd5e1;
+        color-scheme: light;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.5;
+      }
+      .container {
+        max-width: 960px;
+        margin: 24px auto;
+        padding: 0 16px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .title {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .mode-toggle {
+        border: 1px solid var(--chip-border);
+        background: var(--chip);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 6px 12px;
+        cursor: pointer;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--chip-border);
+        border-radius: 16px;
+        padding: 16px;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 800px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .option-title {
+        font-weight: 700;
+        margin: 4px 0 8px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .desc {
+        color: var(--muted);
+        margin: 0 0 12px;
+      }
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 8px 0 6px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 1px solid transparent;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn-danger {
+        background: var(--danger);
+        color: #fff;
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 6px;
+      }
+      .chip {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--chip);
+        border: 1px solid var(--chip-border);
+      }
+      .footnote {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .sr {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .em {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header" role="region" aria-label="Crisis options header">
+        <div class="title">24-hour crisis options (Adults)</div>
+        <button
+          class="mode-toggle"
+          id="modeBtn"
+          type="button"
+          aria-pressed="false"
+        >
+          Light mode
+        </button>
+      </div>
+
+      <div class="card" role="region" aria-label="Two crisis options">
+        <div class="grid">
+          <!-- Option 1: COPES -->
+          <section aria-labelledby="opt1-h">
+            <h2 class="option-title" id="opt1-h">
+              ① Call now / Mobile response (COPES)
+            </h2>
+            <p class="desc">
+              24-hour phone counseling and mobile crisis response in Tulsa
+              County if needed.
+            </p>
+            <div class="btn-row">
+              <a
+                class="btn btn-primary"
+                href="tel:+19187444800"
+                aria-label="Call COPES now at 9 1 8, 7 4 4, 4 8 0 0"
+              >
+                Call COPES (918-744-4800)
+              </a>
+            </div>
+            <div class="chips" aria-label="When this option is helpful">
+              <span class="chip" title="A mobile team can come to you"
+                >🏠 If you can’t leave home</span
+              >
+              <span class="chip" title="Phone and mobile response available"
+                >🚗 If you don’t have transportation</span
+              >
+            </div>
+          </section>
+
+          <!-- Option 2: URC -->
+          <section aria-labelledby="opt2-h">
+            <h2 class="option-title" id="opt2-h">
+              ② 24-hour walk-in (Grand Mental Health – URC)
+            </h2>
+            <p class="desc">
+              No appointment needed. Helpful if you want to leave your current
+              environment and receive in-person support.
+            </p>
+            <div class="btn-row">
+              <a
+                class="btn btn-primary"
+                href="https://www.grandmh.com/urc"
+                target="_blank"
+                rel="noopener"
+                aria-label="Visit URC for in-person support, open 24 7, no appointment needed"
+              >
+                Visit URC (24h / No appointment)
+              </a>
+              <a
+                class="btn btn-outline"
+                href="tel:+18003777500"
+                aria-label="Call Grand Mental Health information line"
+              >
+                Call info line
+              </a>
+            </div>
+            <div class="chips" aria-label="What you can expect">
+              <span class="chip">👥 Talk to someone face-to-face</span>
+              <span class="chip">⏰ Available anytime (24/7)</span>
+            </div>
+          </section>
+        </div>
+
+        <p class="footnote" role="note">
+          <span class="em">Safety note:</span> If there is imminent danger, call
+          <a href="tel:911">911</a>. For a nationwide mental health crisis line,
+          call or text <a href="tel:988">988</a> (Suicide & Crisis Lifeline).
+          Based on standard medical safety guidance.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Light/Dark toggle (no persistence to keep snippet simple)
+      const btn = document.getElementById("modeBtn");
+      btn.addEventListener("click", () => {
+        const isLight = document.body.classList.toggle("light");
+        btn.setAttribute("aria-pressed", String(isLight));
+        btn.textContent = isLight ? "Dark mode" : "Light mode";
+      });
+    </script>
+  </body>
+</html>

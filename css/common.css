@@ -48,14 +48,21 @@ a {
   border: 0;
 }
 
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
 .pill {
   display: inline-block;
-  padding: 4px 10px;
-  border: 1px solid #334155;
+  font-size: 0.9rem;
+  padding: 6px 10px;
   border-radius: 999px;
+  border: 1px solid #334155;
   color: #cbd5e1;
   margin-right: 6px;
-  font-size: 12px;
 }
 
 .divider {
