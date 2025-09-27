@@ -33,7 +33,6 @@ function applyI18n(dict) {
     const key = el.getAttribute("data-i18n");
     if (!key || key === "-") return; // "-" を付けたらスキップできるオプション
     const val = getI18n(dict, key);
-    console.log(`i18n: ${key} -> ${val}`);
     if (val != null) el.innerHTML = val;
   });
 
@@ -47,7 +46,7 @@ function applyI18n(dict) {
     for (const p of pairs) {
       const [attr, key] = p.split(":").map((s) => s.trim());
       if (!attr || !key) continue;
-      const val = get(dict, key);
+      const val = getI18n(dict, key);
       if (val != null) el.setAttribute(attr, val);
     }
   });
