@@ -70,6 +70,8 @@
   "highcare.body": "選択された内容から、外来クリニックでは対応困難な可能性があります。以下のいずれかに<strong>至急</strong>ご連絡ください。",
   "highcare.copesBtn": "918-744-4800 に電話",
   "highcare.er": "病院の救急外来（ER）を受診",
+  "highcare.erDesc": "直接の対面診療を希望する場合は、お近くの救急外来へ向かってください。",
+  "highcare.findEr": "近くのERを探す",
 
   "routine.title": "通常の外来サービスにつながる（成人）",
   "routine.body": "以下の機関は、カウンセリング、薬物療法管理、SUDサポートなどの定型外来を提供しています。",

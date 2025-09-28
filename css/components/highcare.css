@@ -1,0 +1,55 @@
+/* Highcare (urgent evaluation) component styles */
+.option-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+@media (min-width: 680px) {
+  .option-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.option-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid #334155;
+}
+
+.option-card .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.option-card .title {
+  font-weight: 700;
+  margin: 2px 0 4px;
+}
+
+.option-card .desc {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.option-card.tel {
+  border-color: rgba(244, 63, 94, 0.45);
+  background: rgba(244, 63, 94, 0.06);
+}
+
+.option-card.er {
+  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(56, 189, 248, 0.06);
+}
+

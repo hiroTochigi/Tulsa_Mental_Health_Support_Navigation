@@ -70,6 +70,8 @@
   "highcare.body": "Based on your selections, outpatient clinics may not be appropriate. Please contact one of the following <strong>immediately</strong>:",
   "highcare.copesBtn": "Call 918-744-4800",
   "highcare.er": "Go to a hospital emergency room (ER)",
+  "highcare.erDesc": "If you prefer in-person evaluation, go to your nearest ER.",
+  "highcare.findEr": "Find an ER near me",
 
   "routine.title": "Connection to routine outpatient services (Adults)",
   "routine.body": "The following agencies provide routine outpatient care such as counseling, medication management, and SUD support.",

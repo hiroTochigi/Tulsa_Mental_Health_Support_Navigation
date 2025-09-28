@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/components/forms.css" />
     <link rel="stylesheet" href="css/components/results.css" />
     <script defer src="js/components/banner.js"></script>
+    <script defer src="js/components/highcare.js"></script>
   </head>
   <body>
     <div class="container">
@@ -276,27 +277,7 @@
           </div>
         </section>
 
-        <section id="highcare" class="result hidden emergency">
-          <h3 data-i18n="highcare.title">至急の医療評価を推奨</h3>
-          <p data-i18n="highcare.body">
-            選択された内容から、外来クリニックでは対応困難な可能性があります。以下のいずれかに<strong>至急</strong>ご連絡ください。
-          </p>
-          <ul>
-            <li>
-              <a
-                class="btn btn-outline"
-                href="tel:9187444800"
-                data-i18n="highcare.copesBtn"
-                >918-744-4800 に電話</a
-              >
-            </li>
-            <li data-i18n="highcare.er">病院の救急外来（ER）を受診</li>
-          </ul>
-          <div class="divider"></div>
-          <button class="btn btn-outline" data-reset data-i18n="reset">
-            最初の質問に戻る
-          </button>
-        </section>
+        <mh-highcare></mh-highcare>
 
         <!-- STEP E: 非危機・定型ニーズ（成人） -->
         <section id="routine" class="result hidden">
@@ -545,11 +526,20 @@
           });
         });
 
-        // reset ボタン
+        // reset ボタン（静的セクション）
         $$(
-          "#emergency [data-reset], #youth [data-reset], #adult-crisis [data-reset], #highcare [data-reset], #routine [data-reset]"
+          "#emergency [data-reset], #youth [data-reset], #adult-crisis [data-reset], #routine [data-reset]"
         ).forEach((btn) => {
           btn.addEventListener("click", resetWizard);
+        });
+
+        // 追加: 動的に挿入された Highcare セクション用の委任ハンドラ
+        document.addEventListener("click", (e) => {
+          const resetBtn = e.target.closest("[data-reset]");
+          if (resetBtn && resetBtn.closest("#highcare")) {
+            e.preventDefault();
+            resetWizard();
+          }
         });
 
         // Step D の判定
@@ -567,9 +557,11 @@
         });
       }
 
-      // ページ読み込み時に初期化
-      resetWizard();
-      initEventListeners();
+      // ページ読み込み時に初期化（deferred componentsが描画された後に実行）
+      window.addEventListener("DOMContentLoaded", () => {
+        resetWizard();
+        initEventListeners();
+      });
     </script>
   </body>
 </html>

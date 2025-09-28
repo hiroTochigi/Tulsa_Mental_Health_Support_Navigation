@@ -70,6 +70,8 @@
   "highcare.body": "Según sus selecciones, las clínicas ambulatorias pueden no ser adecuadas. Por favor comuníquese con uno de los siguientes <strong>inmediatamente</strong>:",
   "highcare.copesBtn": "Llamar al 918-744-4800",
   "highcare.er": "Ir a la sala de emergencias de un hospital (ER)",
+  "highcare.erDesc": "Si prefiere una evaluación en persona, vaya a la sala de emergencias más cercana.",
+  "highcare.findEr": "Buscar una sala de emergencias cercana",
 
   "routine.title": "Conexión con servicios ambulatorios de rutina (Adultos)",
   "routine.body": "Las siguientes agencias ofrecen atención ambulatoria de rutina como consejería, manejo de medicamentos y apoyo para SUD.",
