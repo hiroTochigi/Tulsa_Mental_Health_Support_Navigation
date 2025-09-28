@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="css/components/forms.css" />
     <link rel="stylesheet" href="css/components/results.css" />
     <script defer src="js/components/banner.js"></script>
+    <script defer src="js/components/emergency.js"></script>
     <script defer src="js/components/highcare.js"></script>
     <script defer src="js/components/youth.js"></script>
+    <script defer src="js/components/adult-crisis.js"></script>
   </head>
   <body>
     <div class="container">
@@ -46,70 +48,6 @@
           </div>
         </section>
 
-        <section
-          id="emergency"
-          class="result emergency hidden"
-          role="alert"
-          aria-live="assertive"
-        >
-          <h3 data-i18n="emergency.title"></h3>
-          <ul>
-            <li>
-              <span class="label" data-i18n="emergency.lifeThreatLabel"></span>
-              <div class="actions">
-                <a
-                  class="btn btn-danger"
-                  href="tel:911"
-                  data-i18n="emergency.call911"
-                >
-                  911 に電話（警察・消防・救急）
-                </a>
-              </div>
-            </li>
-            <li>
-              <span
-                class="label crisis-label"
-                data-i18n="banner.mentalCrisisLabel"
-              ></span>
-              <p
-                class="crisis-explainer"
-                data-i18n="emergency.crisisExplainer"
-              ></p>
-              <div class="actions">
-                <a
-                  class="btn btn-danger"
-                  href="tel:988"
-                  data-i18n="emergency.call988Explained"
-                ></a>
-                <a
-                  class="btn btn-outline"
-                  href="sms:988"
-                  data-i18n="emergency.text988Explained"
-                ></a>
-              </div>
-            </li>
-            <li>
-              <span
-                class="label"
-                data-i18n="emergency.tulsaSupportLabel"
-              ></span>
-              <p class="explain" data-i18n="emergency.copesExplain"></p>
-              <div class="actions">
-                <a
-                  class="btn btn-outline"
-                  href="tel:+19187444800"
-                  data-i18n="emergency.copesNumberBtn"
-                >
-                  COPES に電話（918-744-4800）
-                </a>
-              </div>
-            </li>
-          </ul>
-          <p class="footer" data-i18n="emergency.footer"></p>
-          <div class="divider"></div>
-          <button class="btn btn-outline" data-reset data-i18n="reset"></button>
-        </section>
-
         <!-- STEP B: 年齢 -->
         <section id="stepB" class="step hidden" aria-labelledby="qB">
           <div class="q" id="qB" data-i18n="B.question">
@@ -129,8 +67,6 @@
           </div>
         </section>
 
-        <mh-youth id="youth"></mh-youth>
-
         <!-- STEP C: 成人・緊急度 -->
         <section id="stepC" class="step hidden" aria-labelledby="qC">
           <div class="q" id="qC" data-i18n="C.question">
@@ -149,64 +85,6 @@
               いいえ（落ち着いて相談先を探したい）
             </button>
           </div>
-        </section>
-
-        <section id="adult-crisis" class="result hidden">
-          <h3 data-i18n="adultCrisis.title">24時間の緊急オプション（成人）</h3>
-          <div class="grid">
-            <div>
-              <h4 data-i18n="adultCrisis.copes.h">
-                ① 今すぐ電話/モバイル対応（COPES）
-              </h4>
-              <p class="subtitle" data-i18n="adultCrisis.copes.subtitle">
-                タルサ郡の24時間電話相談と必要に応じたモバイル危機対応
-              </p>
-              <div class="cta">
-                <a
-                  class="btn"
-                  href="tel:9187444800"
-                  data-i18n="adultCrisis.copes.callBtn"
-                  >COPESに電話（918-744-4800）</a
-                >
-              </div>
-              <div class="chips" aria-label="When this option is helpful">
-                <span class="pill" data-i18n="adultCrisis.copes.pill1"
-                  >🏠 家から出られない場合</span
-                ><span class="pill" data-i18n="adultCrisis.copes.pill2"
-                  >🚗 移動手段がない場合</span
-                >
-              </div>
-            </div>
-            <div>
-              <h4 data-i18n="adultCrisis.urc.h">
-                ② 24時間ウォークイン（Grand Mental Health – URC）
-              </h4>
-              <p class="subtitle" data-i18n="adultCrisis.urc.subtitle">
-                予約不要。現在の環境から離れて直接支援を受けたい場合に有効
-              </p>
-              <div class="cta">
-                <a
-                  class="btn"
-                  href="#"
-                  aria-disabled="true"
-                  data-i18n="adultCrisis.urc.visitBtn"
-                  data-i18n-attr="title:adultCrisis.urc.visitBtnTitle"
-                  >URC を訪問（24h / 予約不要）</a
-                >
-              </div>
-              <div class="chips" aria-label="What you can expect">
-                <span class="pill" data-i18n="adultCrisis.urc.pill1"
-                  >👥 対面で相談できる</span
-                ><span class="pill" data-i18n="adultCrisis.urc.pill2"
-                  >⏰ いつでも利用可（24時間365日）</span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <button class="btn btn-outline" data-reset data-i18n="reset">
-            最初の質問に戻る
-          </button>
         </section>
 
         <!-- STEP D: 成人・特定ニーズ -->
@@ -251,8 +129,10 @@
           </div>
         </section>
 
+        <mh-emergency id="emergency"></mh-emergency>
+        <mh-youth id="youth"></mh-youth>
+        <mh-adult-crisis id="adult-crisis"></mh-adult-crisis>
         <mh-highcare id="highcare"></mh-highcare>
-
         <!-- STEP E: 非危機・定型ニーズ（成人） -->
         <section id="routine" class="result hidden">
           <h3 data-i18n="routine.title">
