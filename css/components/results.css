@@ -28,13 +28,7 @@
   font-weight: 600;
 }
 
-/* ボタン2つ以上を横並びにする専用ラッパ（任意） */
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-}
+/* Actions container now defined centrally; see layout.css */
 
 /* 緊急系の装飾 */
 .emergency {

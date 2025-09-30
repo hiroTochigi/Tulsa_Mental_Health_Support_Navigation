@@ -55,7 +55,8 @@
   grid-area: actions;
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .crisis-label {

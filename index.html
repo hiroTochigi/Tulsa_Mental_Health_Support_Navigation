@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/components/buttons.css" />
     <link rel="stylesheet" href="css/components/forms.css" />
     <link rel="stylesheet" href="css/components/results.css" />
+    <link rel="stylesheet" href="css/components/agency.css" />
     <script defer src="js/components/banner.js"></script>
     <script defer src="js/components/emergency.js"></script>
     <script defer src="js/components/highcare.js"></script>
@@ -134,64 +135,159 @@
         <mh-adult-crisis id="adult-crisis"></mh-adult-crisis>
         <mh-highcare id="highcare"></mh-highcare>
         <!-- STEP E: 非危機・定型ニーズ（成人） -->
-        <section id="routine" class="result hidden">
-          <h3 data-i18n="routine.title">
+        <section
+          id="routine"
+          class="result"
+          role="region"
+          aria-labelledby="routine-title"
+        >
+          <h3 id="routine-title" data-i18n="routine.title">
             通常の外来サービスにつながる（成人）
           </h3>
+
           <p data-i18n="routine.body">
             以下の機関は、カウンセリング、薬物療法管理、SUDサポートなどの定型外来を提供しています。
           </p>
-          <ul>
-            <li>
-              <strong data-i18n="routine.crs.name"
-                >CRS（Counseling & Recovery Services）</strong
-              >
-              —
-              <span class="pill" data-i18n="routine.crs.pill.uninsured"
-                >未保険者OK</span
-              >
-              <span class="pill" data-i18n="routine.crs.pill.sliding"
-                >スライディングスケール</span
-              >
-              <div class="cta">
-                <a
-                  class="btn"
-                  href="#"
-                  aria-disabled="true"
-                  data-i18n="routine.crs.apply"
-                  data-i18n-attr="title:routine.crs.applyTitle"
-                  >予約を申し込む</a
+
+          <div class="agency-list">
+            <!-- CRS -->
+            <article
+              class="agency-card"
+              data-agency="crs"
+              data-site=""
+              data-apply=""
+            >
+              <header class="agency-head">
+                <div class="agency-title">
+                  <span class="name" data-i18n="routine.crs.full"
+                    >Counseling & Recovery Services</span
+                  >
+                </div>
+                <div class="tags">
+                  <span class="pill" data-i18n="routine.crs.pill.uninsured"
+                    >未保険者OK</span
+                  >
+                  <span class="pill" data-i18n="routine.crs.pill.sliding"
+                    >スライディングスケール</span
+                  >
+                </div>
+              </header>
+              <p class="desc" data-i18n="routine.crs.desc">
+                オクラホマ州タルサを拠点とする非営利機関。精神健康ケア、カウンセリング、薬物依存治療、危機対応サービスを提供します。
+              </p>
+              <div class="actions">
+                <a class="btn call-btn" href="#" data-i18n="routine.callBtn"
+                  >電話する</a
                 >
                 <a
-                  class="btn btn-outline"
-                  href="tel:"
-                  data-i18n="routine.crs.phoneBtn"
-                  >機関の電話番号を見る</a
+                  class="btn btn-outline site-btn"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="routine.siteBtn"
+                  >ウェブサイト</a
+                >
+                <a
+                  class="btn btn-outline apply-btn"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="routine.applyBtn"
+                  >オンライン申込</a
                 >
               </div>
-            </li>
-            <li>
-              <strong data-i18n="routine.fcs.name"
-                >FCS（Family & Children’s Services）</strong
-              >
-              —
-              <span class="pill" data-i18n="routine.fcs.pill.sliding"
-                >スライディングスケール</span
-              >
-            </li>
-            <li>
-              <strong data-i18n="routine.chc.name"
-                >CHC（Community Health Connection）</strong
-              >
-              —
-              <span class="pill" data-i18n="routine.chc.pill.pc"
-                >プライマリケア統合</span
-              >
-              <span class="pill" data-i18n="routine.chc.pill.sliding"
-                >スライディングスケール</span
-              >
-            </li>
-          </ul>
+            </article>
+
+            <article
+              class="agency-card"
+              data-agency="fcs"
+              data-phone="918-587-9471"
+            >
+              <header class="agency-head">
+                <div class="agency-title">
+                  <span class="name" data-i18n="routine.fcs.full"
+                    >Family & Children’s Services</span
+                  >
+                </div>
+                <div class="tags">
+                  <span class="pill" data-i18n="routine.fcs.pill.sliding"
+                    >スライディングスケール</span
+                  >
+                </div>
+              </header>
+              <p class="desc" data-i18n="routine.fcs.desc">
+                タルサ地域の包括的な子ども・家族支援センター。危機安定化、統合的ヘルスケア、相談・治療サービスを実施しています。
+              </p>
+              <div class="actions">
+                <a class="btn call-btn" href="#" data-i18n="routine.callBtn"
+                  >電話する</a
+                >
+                <a
+                  class="btn btn-outline site-btn"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="routine.siteBtn"
+                  >ウェブサイト</a
+                >
+                <a
+                  class="btn btn-outline apply-btn"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="routine.applyBtn"
+                  >オンライン申込</a
+                >
+              </div>
+            </article>
+
+            <article
+              class="agency-card"
+              data-agency="chc"
+              data-phone="918-622-0641"
+            >
+              <header class="agency-head">
+                <div class="agency-title">
+                  <span class="name" data-i18n="routine.chc.full"
+                    >Community Health Connection</span
+                  >
+                </div>
+                <div class="tags">
+                  <span class="pill" data-i18n="routine.chc.pill.pc"
+                    >プライマリケア統合</span
+                  >
+                  <span class="pill" data-i18n="routine.chc.pill.sliding"
+                    >スライディングスケール</span
+                  >
+                </div>
+              </header>
+              <p class="desc" data-i18n="routine.chc.desc">
+                連邦認定のコミュニティ健康センター（FQHC）。医療、歯科、行動健康、薬局サービスを提供し、保険未加入者にはスライディングスケールの支払制度があります。
+              </p>
+              <div class="actions">
+                <a class="btn call-btn" href="#" data-i18n="routine.callBtn"
+                  >電話する</a
+                >
+                <a
+                  class="btn btn-outline site-btn"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="routine.siteBtn"
+                  >ウェブサイト</a
+                >
+                <a
+                  class="btn btn-outline apply-btn"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="routine.applyBtn"
+                  >オンライン申込</a
+                >
+              </div>
+            </article>
+          </div>
+
           <div class="divider"></div>
           <button class="btn btn-outline" data-reset data-i18n="reset">
             最初の質問に戻る

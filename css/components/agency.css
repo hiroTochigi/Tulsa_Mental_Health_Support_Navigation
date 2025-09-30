@@ -1,0 +1,64 @@
+/* Agency list styles scoped to the routine section */
+#routine .agency-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 8px;
+}
+@media (min-width: 700px) {
+  #routine .agency-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1000px) {
+  #routine .agency-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+#routine .agency-card {
+  border: 1px solid #334155;
+  background: rgba(148, 163, 184, 0.06);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+#routine .agency-head {
+  display: grid;
+  gap: 8px;
+}
+
+#routine .agency-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+#routine .agency-title .name {
+  font-weight: 800;
+  line-height: 1.2;
+}
+#routine .agency-title .abbr.pill {
+  font-weight: 700;
+  background: rgba(148, 163, 184, 0.12);
+}
+
+#routine .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#routine .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 2px solid #334155;
+  background: rgba(148, 163, 184, 0.08);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#routine .agency-card .actions { margin-top: 10px; }
