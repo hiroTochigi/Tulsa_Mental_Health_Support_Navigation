@@ -212,15 +212,20 @@
       const $ = (s, root = document) => root.querySelector(s);
       const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
 
-      // Helper: current Highcare section ID (from component)
-      function getHighcareId() {
-        const host = document.querySelector("mh-highcare");
-        return (
-          host?.getAttribute("data-section-id") ||
-          host?.querySelector("section[id]")?.id ||
-          "highcare"
-        );
-      }
+      // セクションIDを定数で管理
+      const SECTIONS = {
+        STEP_A: "stepA",
+        STEP_B: "stepB",
+        STEP_C: "stepC",
+        STEP_D: "stepD",
+        YOUTH: "youth",
+        ADULT_CRISIS: "adult-crisis",
+        EMERGENCY: "emergency",
+        HIGHCARE: "highcare",
+        ROUTINE: "routine",
+      };
+
+      // Highcare section id is fixed to 'highcare'
 
       // セクション制御
       function hideSections(ids) {
@@ -240,62 +245,67 @@
       // 初期状態に戻す
       function resetWizard() {
         const allSections = [
-          "stepB",
-          "stepC",
-          "stepD",
-          "youth",
-          "adult-crisis",
-          "emergency",
-          getHighcareId(),
-          "routine",
+          SECTIONS.STEP_B,
+          SECTIONS.STEP_C,
+          SECTIONS.STEP_D,
+          SECTIONS.YOUTH,
+          SECTIONS.ADULT_CRISIS,
+          SECTIONS.EMERGENCY,
+          SECTIONS.HIGHCARE,
+          SECTIONS.ROUTINE,
         ];
         hideSections(allSections);
 
         // チェックをクリア
         $$("#stepD input[type=checkbox]").forEach((cb) => (cb.checked = false));
 
-        showSection("stepA");
-        $("#stepA button")?.focus();
+        showSection(SECTIONS.STEP_A);
+        $(`#${SECTIONS.STEP_A} button`)?.focus();
       }
 
       // 次のステップに進む処理
       function goToNextStep(target) {
-        const hc = getHighcareId();
         switch (target) {
-          case "emergency":
+          case SECTIONS.EMERGENCY:
             hideSections([
-              "stepB",
-              "stepC",
-              "stepD",
-              "youth",
-              "adult-crisis",
-              hc,
-              "routine",
+              SECTIONS.STEP_B,
+              SECTIONS.STEP_C,
+              SECTIONS.STEP_D,
+              SECTIONS.YOUTH,
+              SECTIONS.ADULT_CRISIS,
+              SECTIONS.HIGHCARE,
+              SECTIONS.ROUTINE,
             ]);
             break;
-          case "stepB":
+          case SECTIONS.STEP_B:
             hideSections([
-              "emergency",
-              "youth",
-              "stepC",
-              "stepD",
-              "adult-crisis",
-              hc,
-              "routine",
+              SECTIONS.EMERGENCY,
+              SECTIONS.YOUTH,
+              SECTIONS.STEP_C,
+              SECTIONS.STEP_D,
+              SECTIONS.ADULT_CRISIS,
+              SECTIONS.HIGHCARE,
+              SECTIONS.ROUTINE,
             ]);
             break;
-          case "stepC":
+          case SECTIONS.STEP_C:
             hideSections([
-              "emergency",
-              "youth",
-              "stepD",
-              "adult-crisis",
-              hc,
-              "routine",
+              SECTIONS.EMERGENCY,
+              SECTIONS.YOUTH,
+              SECTIONS.STEP_D,
+              SECTIONS.ADULT_CRISIS,
+              SECTIONS.HIGHCARE,
+              SECTIONS.ROUTINE,
             ]);
             break;
-          case "adult-crisis":
-            hideSections(["emergency", "youth", "stepD", hc, "routine"]);
+          case SECTIONS.ADULT_CRISIS:
+            hideSections([
+              SECTIONS.EMERGENCY,
+              SECTIONS.YOUTH,
+              SECTIONS.STEP_D,
+              SECTIONS.HIGHCARE,
+              SECTIONS.ROUTINE,
+            ]);
             break;
         }
         showSection(target);
@@ -306,18 +316,18 @@
         const selected = $$("#stepD input[type=checkbox]:checked").map(
           (cb) => cb.value
         );
-        hideSections([getHighcareId(), "routine"]);
+        hideSections([SECTIONS.HIGHCARE, SECTIONS.ROUTINE]);
 
         const needsHighCare =
           selected.includes("detox") || selected.includes("psychosis");
-        showSection(needsHighCare ? getHighcareId() : "routine");
+        showSection(needsHighCare ? SECTIONS.HIGHCARE : SECTIONS.ROUTINE);
       }
 
       // イベント登録
       function initEventListeners() {
         // next ボタン
         $$(
-          "#stepA [data-next], #stepB [data-next], #stepC [data-next]"
+          `#${SECTIONS.STEP_A} [data-next], #${SECTIONS.STEP_B} [data-next], #${SECTIONS.STEP_C} [data-next]`
         ).forEach((btn) => {
           btn.addEventListener("click", (e) => {
             const target = e.currentTarget.getAttribute("data-next");
@@ -327,7 +337,7 @@
 
         // reset ボタン（静的セクション）
         $$(
-          "#emergency [data-reset], #youth [data-reset], #adult-crisis [data-reset], #routine [data-reset]"
+          `#${SECTIONS.EMERGENCY} [data-reset], #${SECTIONS.YOUTH} [data-reset], #${SECTIONS.ADULT_CRISIS} [data-reset], #${SECTIONS.ROUTINE} [data-reset]`
         ).forEach((btn) => {
           btn.addEventListener("click", resetWizard);
         });
@@ -351,7 +361,7 @@
             !e.target.closest("input,textarea")
           ) {
             e.preventDefault();
-            $("#stepA button")?.focus();
+            $(`#${SECTIONS.STEP_A} button`)?.focus();
           }
         });
       }
