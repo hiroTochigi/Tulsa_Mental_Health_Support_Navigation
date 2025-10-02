@@ -13,7 +13,9 @@ let CURRENT_LANG = detectLang();
 async function loadDict(lang) {
   const supported = ["ja", "en", "es"];
   if (!supported.includes(lang)) lang = "en";
-  const res = await fetch(`/locales/${lang}.json`, { cache: "no-store" });
+  // Use relative path so it works on GitHub Pages project sites
+  // (e.g., https://user.github.io/repo/locales/en.json) and locally.
+  const res = await fetch(`./locales/${lang}.json`, { cache: "no-store" });
   if (!res.ok) throw new Error("i18n load failed: " + res.status);
   return res.json();
 }
