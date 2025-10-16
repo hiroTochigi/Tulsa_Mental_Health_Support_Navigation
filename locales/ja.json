@@ -1,5 +1,6 @@
 {
   "title": "タルサ市 メンタルヘルス支援ナビ",
+  "meta.title": "タルサ市 メンタルヘルス支援ナビ（MVP）",
   "subtitle": "このツールは、あなたのニーズに合った支援につながるためのガイドです。いくつかの質問にお答えください（個人情報は保存しません）。",
 
   "banner.label": "緊急の連絡先バナー",
@@ -10,8 +11,12 @@
   "banner.call988Aria": "988に今すぐ電話",
   "banner.text988Aria": "988に今すぐテキスト",
   "banner.emergencyPrefix": "もしこれが<mark>医療的な緊急事態</mark>であるか、あなた自身または他者に差し迫った危険がある場合は、911に電話してください。",
+  "banner.emergencyPrefixShort": "緊急時は 911 に電話",
   "banner.mentalCrisisLabel": "メンタルヘルスの危機にある場合は：",
   "banner.medicalEmergency": "医療的な緊急事態",
+  "banner.moreShow": "988を表示",
+  "banner.moreHide": "閉じる",
+  "banner.note": "24/7・無料・秘密厳守",
 
   "A.question": "A. あなた、または他の誰かが差し迫った危険にありますか？または医学的な緊急事態ですか？",
   "A.yes": "はい（緊急）",

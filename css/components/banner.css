@@ -45,3 +45,84 @@
 .phone {
   font-weight: 800;
 }
+
+/* --- Accordion (newbanner) styles --- */
+/*
+  These styles support the new <details class="emergency"> accordion
+  structure used by js/components/newbanner.js. They are intentionally
+  namespaced with the `em-` prefix to avoid conflicts with the legacy
+  .banner styles above.
+*/
+
+:root {
+  /* Match legacy .banner colors: soft red tint with stronger red border */
+  --em-surface: rgba(244, 63, 94, 0.15);
+  --em-border: rgba(244, 63, 94, 0.4);
+  /* Use site text tokens to match legacy banner */
+  --em-text: var(--text);
+  --em-muted: var(--muted);
+  --em-accent: #f59e0b;  /* amber-500 */
+  --em-danger: #ef4444;  /* red-500 */
+}
+
+.emergency {
+  background: var(--em-surface);
+  color: var(--em-text);
+  border: 1px solid var(--em-border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 8px 12px;
+}
+
+.emergency summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* Hide default markers for broader browser support */
+.emergency summary::-webkit-details-marker { display: none; }
+.emergency summary::marker { content: ""; }
+
+.em-icon { font-size: 1rem; }
+.em-inline { opacity: 0.9; }
+.em-more { margin-left: auto; font-size: 0.85rem; color: var(--em-accent); text-decoration: underline; }
+
+.em-body { padding: 0.75rem; border-top: 1px dashed var(--em-border); }
+.em-lead { margin: 0.25rem 0 0.5rem; color: var(--em-muted); font-size: 0.9rem; }
+.em-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.em-btn {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.em-btn.call { background: var(--em-danger); color: #fff; }
+.em-btn.text { background: transparent; color: var(--em-text); border-color: var(--em-border); }
+
+.em-note { margin: 0.5rem 0 0; font-size: 0.8rem; color: var(--em-muted); }
+
+@media (max-width: 420px) {
+  .emergency summary { padding: 0.5rem 0.6rem; font-size: 0.9rem; }
+  .em-btn { padding: 0.45rem 0.8rem; font-size: 0.9rem; }
+}
+
+/* Responsive text variants for summary line */
+.em-short { display: none; }
+@media (max-width: 915px) {
+  .em-full { display: none; }
+  .em-short { display: inline; }
+}
+
+/* Ensure both more-label variants look consistent */
+.em-more,
+.em-more-full { margin-left: auto; font-size: 0.85rem; color: var(--em-accent); text-decoration: underline; }

@@ -1,5 +1,6 @@
 {
   "title": "City of Tulsa – Mental Health Support Navigator",
+  "meta.title": "City of Tulsa – Mental Health Support Navigator (MVP)",
   "subtitle": "This tool is a guide to connect you with the support that meets your needs. Please answer a few questions (no personal information is stored).",
 
   "banner.label": "Emergency contacts banner",
@@ -10,8 +11,12 @@
   "banner.call988Aria": "Call 988 now",
   "banner.text988Aria": "Text 988 now",
   "banner.emergencyPrefix": "If this is a <mark>medical emergency</mark> or there is imminent danger to yourself or others, call 911.",
+  "banner.emergencyPrefixShort": "Emergency? Call 911.",
   "banner.mentalCrisisLabel": "If you are in a mental health crisis:",
   "banner.medicalEmergency": "medical emergency",
+  "banner.moreShow": "Show 988",
+  "banner.moreHide": "Hide",
+  "banner.note": "24/7 · Free · Confidential",
 
   "A.question": "A. Is anyone in immediate danger, or is this a medical emergency?",
   "A.yes": "Yes (Emergency)",

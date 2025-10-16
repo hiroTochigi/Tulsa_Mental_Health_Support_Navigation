@@ -1,5 +1,6 @@
 {
   "title": "Ciudad de Tulsa – Guía de Apoyo de Salud Mental",
+  "meta.title": "Ciudad de Tulsa – Guía de Apoyo de Salud Mental (MVP)",
   "subtitle": "Esta herramienta es una guía para conectarle con el apoyo que se ajuste a sus necesidades. Por favor responda algunas preguntas (no se guarda información personal).",
 
   "banner.label": "Banner de contactos de emergencia",
@@ -10,8 +11,12 @@
   "banner.call988Aria": "Llamar al 988 ahora",
   "banner.text988Aria": "Enviar mensaje al 988 ahora",
   "banner.emergencyPrefix": "Si esto es una <mark>emergencia médica</mark> o hay un peligro inminente para usted u otras personas, llame al 911.",
+  "banner.emergencyPrefixShort": "¿Emergencia? Llame al 911.",
   "banner.mentalCrisisLabel": "Si está en una crisis de salud mental:",
   "banner.medicalEmergency": "emergencia médica",
+  "banner.moreShow": "Mostrar 988",
+  "banner.moreHide": "Cerrar",
+  "banner.note": "24/7 · Gratis · Confidencial",
 
   "A.question": "A. ¿Alguien está en peligro inmediato o es una emergencia médica?",
   "A.yes": "Sí (Emergencia)",
