@@ -1,24 +1,35 @@
-/* Button component styles */
+/* Buttons */
 button,
 .btn {
   cursor: pointer;
-  background: #0ea5e9;
+  background: #0ea5e9;       /* keep current primary */
   border: none;
   color: white;
-  padding: 12px 14px;
-  border-radius: 999px;
+  padding: 10px 16px;        /* slightly tighter, more balanced */
+  border-radius: 10px;       /* NOT fully rounded: distinguish from chips */
   font-weight: 600;
   text-decoration: none;
+  min-height: 44px;          /* tap target */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn:hover,
 button:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.07);  /* subtle hover */
 }
 
+.btn:focus,
+button:focus {
+  outline: 2px solid #93c5fd;   /* visible focus ring */
+  outline-offset: 2px;
+}
+
+/* Outline/secondary button */
 .btn-outline {
   background: transparent;
-  border: 2px solid #334155;
-  color: #e2e8f0;
+  border: 2px solid #0ea5e9; /* use primary color for clearer affordance */
+  color: #e2e8f0;            /* keep current light text */
 }
 .btn-danger {
   background: var(--accent);

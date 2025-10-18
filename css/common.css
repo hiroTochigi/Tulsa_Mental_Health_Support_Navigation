@@ -51,18 +51,20 @@ a {
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 6px;
+  gap: 8px;           /* keep chip-to-chip spacing */
+  margin-top: 12px;   /* add more space below CTA */
 }
 
 .pill {
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 13px;    /* a bit smaller than buttons */
   padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid #334155;
-  color: #cbd5e1;
-  margin-right: 6px;
+  border-radius: 999px;        /* fully rounded to contrast with buttons */
+  border: 1px solid #334155;   /* keep existing border color */
+  color: #cbd5e1;              /* keep existing text color */
+  background: rgba(148, 163, 184, 0.12); /* subtle slate tint for readability */
+  line-height: 1;              /* compact chip look */
+  margin-right: 0;             /* gap handles spacing */
 }
 
 .divider {
