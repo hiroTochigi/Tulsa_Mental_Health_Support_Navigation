@@ -1,7 +1,22 @@
 class MHAdultCrisis extends HTMLElement {
   connectedCallback() {
     const passedId = this.getAttribute("section-id") || this.getAttribute("id");
-    const sectionId = passedId && passedId.trim() ? passedId.trim() : "adult-crisis";
+    const sectionId =
+      passedId && passedId.trim() ? passedId.trim() : "adult-crisis";
+
+    // Ensure needed component styles are loaded (buttons, results)
+    if (!document.querySelector('link[href="css/components/buttons.css"]')) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "css/components/buttons.css";
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('link[href="css/components/results.css"]')) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "css/components/results.css";
+      document.head.appendChild(link);
+    }
 
     this.innerHTML = `
       <section id="${sectionId}" class="result hidden" role="region" aria-labelledby="${sectionId}-title">
@@ -22,7 +37,8 @@ class MHAdultCrisis extends HTMLElement {
             <h4 data-i18n="adultCrisis.urc.h">② 24時間ウォークイン（Grand Mental Health – URC）</h4>
             <p class="subtitle" data-i18n="adultCrisis.urc.subtitle">予約不要。現在の環境から離れて直接支援を受けたい場合に有効</p>
             <div class="cta">
-              <a class="btn" href="#" aria-disabled="true" data-i18n="adultCrisis.urc.visitBtn" data-i18n-attr="title:adultCrisis.urc.visitBtnTitle">URC を訪問（24h / 予約不要）</a>
+              <a class="btn" href="https://www.grandmh.com/services-programs/urgent-recover-centers/" target="_blank" rel="noopener noreferrer" aria-disabled="true" data-i18n="adultCrisis.urc.visitBtn" data-i18n-attr="title:adultCrisis.urc.visitBtnTitle">URC を訪問（24h / 予約不要）</a>
+              <a class="btn btn-outline" href="https://www.grandmh.com/locations/" target="_blank" rel="noopener noreferrer" data-i18n="adultCrisis.urc.locationsBtn">すべての場所を見る</a>
             </div>
             <div class="chips" aria-label="What you can expect">
               <span class="pill" data-i18n="adultCrisis.urc.pill1">👥 対面で相談できる</span>
@@ -43,4 +59,3 @@ class MHAdultCrisis extends HTMLElement {
 }
 
 customElements.define("mh-adult-crisis", MHAdultCrisis);
-
