@@ -37,8 +37,26 @@ class MHAdultCrisis extends HTMLElement {
             <h4 data-i18n="adultCrisis.urc.h">② 24時間ウォークイン（Grand Mental Health – URC）</h4>
             <p class="subtitle" data-i18n="adultCrisis.urc.subtitle">予約不要。現在の環境から離れて直接支援を受けたい場合に有効</p>
             <div class="cta">
-              <a class="btn" href="https://www.grandmh.com/services-programs/urgent-recover-centers/" target="_blank" rel="noopener noreferrer" aria-disabled="true" data-i18n="adultCrisis.urc.visitBtn" data-i18n-attr="title:adultCrisis.urc.visitBtnTitle">URC を訪問（24h / 予約不要）</a>
-              <a class="btn btn-outline" href="https://www.grandmh.com/locations/" target="_blank" rel="noopener noreferrer" data-i18n="adultCrisis.urc.locationsBtn">すべての場所を見る</a>
+              <a
+                class="btn"
+                href="https://www.grandmh.com/services-programs/urgent-recover-centers/"
+                target="_blank"
+                rel="noopener"
+                data-i18n="adultCrisis.urc.visitBtn"
+                data-i18n-attr="title:adultCrisis.urc.visitBtnTitle"
+              >
+                URC を訪問（24h / 予約不要）
+              </a>
+
+              <a
+                class="btn btn-outline"
+                href="https://www.grandmh.com/locations/"
+                target="_blank"
+                rel="noopener"
+                data-i18n="adultCrisis.urc.locationsBtn"
+              >
+                拠点一覧を見る
+              </a>
             </div>
             <div class="chips" aria-label="What you can expect">
               <span class="pill" data-i18n="adultCrisis.urc.pill1">👥 対面で相談できる</span>

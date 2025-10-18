@@ -2,14 +2,38 @@
 .result h3 {
   margin: 6px 0;
 }
+
 .result ul {
   margin: 6px 0 0 1em;
 }
+
+/* Card/grid spacing inside result sections */
+.result .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px; /* space between the two columns/cards */
+}
+@media (min-width: 720px) {
+  .result .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Headings and subtitles */
+.result h4 {
+  margin: 0 0 8px;
+}
+.result .subtitle {
+  margin: 0 0 16px;
+  color: var(--text-muted, #94a3b8); /* slightly lighter subtitle */
+}
+
+/* CTA block: separate from chips with vertical margin and inter-button gap */
 .result .cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 12px; /* space between buttons */
+  margin: 0 0 16px; /* space below CTA before chips */
 }
 
 .result ul {
@@ -26,6 +50,14 @@
 }
 .result li .label {
   font-weight: 600;
+}
+
+/* Divider spacing */
+.result .divider {
+  margin: 24px 0;
+  height: 1px;
+  background: #334155;
+  opacity: 0.6;
 }
 
 /* Actions container now defined centrally; see layout.css */
