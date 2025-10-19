@@ -1,7 +1,8 @@
 class MHEmergency extends HTMLElement {
   connectedCallback() {
     const passedId = this.getAttribute("section-id") || this.getAttribute("id");
-    const sectionId = passedId && passedId.trim() ? passedId.trim() : "emergency";
+    const sectionId =
+      passedId && passedId.trim() ? passedId.trim() : "emergency";
 
     this.innerHTML = `
       <section
@@ -36,7 +37,23 @@ class MHEmergency extends HTMLElement {
               <a class="btn btn-outline" href="tel:+19187444800" data-i18n="emergency.copesNumberBtn">
                 COPES に電話（918-744-4800）
               </a>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                id="${sectionId}-copes-whatIsBtn"
+                data-open="#${sectionId}-copes-modal"
+                data-i18n="emergency.copesWhatIsBtn"
+              >
+                What is COPES?
+              </button>
             </div>
+            <mh-modal
+              id="${sectionId}-copes-modal"
+              data-heading-i18n="emergency.copesWhatIsHeading"
+              data-body-i18n="emergency.copesWhatIsBody"
+              data-list-i18n="emergency.copesWhatIsList1,emergency.copesWhatIsList2,emergency.copesWhatIsList3,emergency.copesWhatIsList4"
+              data-close-i18n="close"
+            ></mh-modal>
           </li>
         </ul>
         <p class="footer" data-i18n="emergency.footer"></p>
@@ -53,4 +70,3 @@ class MHEmergency extends HTMLElement {
 }
 
 customElements.define("mh-emergency", MHEmergency);
-

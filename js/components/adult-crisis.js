@@ -27,7 +27,23 @@ class MHAdultCrisis extends HTMLElement {
             <p class="subtitle" data-i18n="adultCrisis.copes.subtitle">タルサ郡の24時間電話相談と必要に応じたモバイル危機対応</p>
             <div class="cta">
               <a class="btn" href="tel:9187444800" data-i18n="adultCrisis.copes.callBtn">COPESに電話（918-744-4800）</a>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                id="${sectionId}-copes-whatIsBtn"
+                data-open="#${sectionId}-copes-modal"
+                data-i18n="emergency.copesWhatIsBtn"
+              >
+                What is COPES?
+              </button>
             </div>
+            <mh-modal
+              id="${sectionId}-copes-modal"
+              data-heading-i18n="emergency.copesWhatIsHeading"
+              data-body-i18n="emergency.copesWhatIsBody"
+              data-list-i18n="emergency.copesWhatIsList1,emergency.copesWhatIsList2,emergency.copesWhatIsList3,emergency.copesWhatIsList4"
+              data-close-i18n="close"
+            ></mh-modal>
             <div class="chips" aria-label="When this option is helpful">
               <span class="pill" data-i18n="adultCrisis.copes.pill1">🏠 家から出られない場合</span>
               <span class="pill" data-i18n="adultCrisis.copes.pill2">🚗 移動手段がない場合</span>
