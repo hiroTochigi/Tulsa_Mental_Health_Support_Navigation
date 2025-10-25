@@ -28,11 +28,9 @@ class MHRoutine extends HTMLElement {
           #${sectionId} .card--fcs { border-color: #9b2c2c; }
           #${sectionId} .card--chc { border-color: #2f855a; }
         </style>
-        <h3 id="${sectionId}-title" data-i18n="routine.title">通常の外来サービスにつながる（成人）</h3>
+        <h3 id="${sectionId}-title" data-i18n="routine.title">Connection to routine outpatient services (Adults)</h3>
 
-        <p data-i18n="routine.body">
-          以下の機関は、カウンセリング、薬物療法管理、SUDサポートなどの定型外来を提供しています。
-        </p>
+        <p data-i18n="routine.body">The following agencies provide routine outpatient care such as counseling, medication management, and SUD support.</p>
 
         <div class="agency-list">
           <!-- CRS -->
@@ -46,16 +44,30 @@ class MHRoutine extends HTMLElement {
                 <h4 id="${sectionId}-crs-title" data-i18n="routine.crs.full">Counseling & Recovery Services</h4>
               </div>
               <div class="tags">
-                <span class="pill" data-i18n="routine.crs.pill.uninsured">未保険者OK</span>
-                <span class="pill" data-i18n="routine.crs.pill.sliding">スライディングスケール</span>
+                <span class="pill" data-i18n="routine.crs.pill.uninsured">Uninsured OK</span>
+                <span class="pill" data-i18n="routine.crs.pill.sliding">Sliding scale</span>
               </div>
             </header>
-            <p class="explainer" data-i18n="routine.crs.desc">オクラホマ州タルサを拠点とする非営利機関。精神健康ケア、カウンセリング、薬物依存治療、危機対応サービスを提供します。</p>
+            <p class="explainer" data-i18n="routine.crs.desc">Nonprofit based in Tulsa, OK. Provides mental health care, counseling, substance use treatment, and crisis response services.</p>
             <div class="actions">
-              <a class="btn call-btn" href="#" data-i18n="routine.callBtn">電話する</a>
-              <a class="btn btn-outline site-btn" href="https://crsok.org/adult-services" target="_blank" rel="noopener" data-i18n="routine.siteBtn">ウェブサイト</a>
-              <a class="btn btn-outline apply-btn" href="https://crsok.org/contact-us/" target="_blank" rel="noopener" data-i18n="routine.applyBtn">オンライン申込</a>
+              <a class="btn call-btn" href="tel:+19184922554" data-i18n="routine.callBtn">Call</a>
+              <a class="btn btn-outline site-btn" href="https://crsok.org/adult-services/" target="_blank" rel="noopener" data-i18n="routine.siteBtn">Website</a>
+              <a class="btn btn-outline apply-btn" href="https://crsok.org/contact-us/" target="_blank" rel="noopener" data-i18n="routine.applyBtn">Get in Touch</a>
+              <button
+                class="btn btn-outline"
+                type="button"
+                data-open="#${sectionId}-crs-modal"
+                data-i18n="routine.crs.moreBtn"
+              >
+                About CRSOK
+              </button>
             </div>
+            <mh-modal
+              id="${sectionId}-crs-modal"
+              data-heading-i18n="routine.crs.modalHeading"
+              data-body-i18n="routine.crs.modalBody"
+              data-close-i18n="close"
+            ></mh-modal>
           </article>
 
           <!-- FCS -->
@@ -71,14 +83,14 @@ class MHRoutine extends HTMLElement {
                 <h4 id="${sectionId}-fcs-title" data-i18n="routine.fcs.full">Family & Children’s Services</h4>
               </div>
               <div class="tags">
-                <span class="pill" data-i18n="routine.fcs.pill.sliding">スライディングスケール</span>
+                <span class="pill" data-i18n="routine.fcs.pill.sliding">Sliding scale</span>
               </div>
             </header>
-            <p class="explainer" data-i18n="routine.fcs.desc">タルサ地域の包括的な子ども・家族支援センター。危機安定化、統合的ヘルスケア、相談・治療サービスを実施しています。</p>
+            <p class="explainer" data-i18n="routine.fcs.desc">Comprehensive behavioral-health services for adults, youth and families in the Tulsa area, including outpatient counseling, medication management, integrated healthcare and crisis stabilization.</p>
             <div class="actions">
-              <a class="btn call-btn" href="#" data-i18n="routine.callBtn">電話する</a>
-              <a class="btn btn-outline site-btn" href="#" target="_blank" rel="noopener" data-i18n="routine.siteBtn">ウェブサイト</a>
-              <a class="btn btn-outline apply-btn" href="#" target="_blank" rel="noopener" data-i18n="routine.applyBtn">オンライン申込</a>
+              <a class="btn call-btn" href="tel:+19185879471" data-i18n="routine.callBtn">Call</a>
+              <a class="btn btn-outline site-btn" href="https://www.fcsok.org/services/adult-and-family-counseling/" target="_blank" rel="noopener" data-i18n="routine.fcs.siteBtn">Start Counselling & Therapy</a>
+              <a class="btn btn-outline apply-btn" href="https://www.fcsok.org/services/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.fcs.applyBtn">Get Medication Help & Management</a>
             </div>
           </article>
 
@@ -95,21 +107,21 @@ class MHRoutine extends HTMLElement {
                 <h4 id="${sectionId}-chc-title" data-i18n="routine.chc.full">Community Health Connection</h4>
               </div>
               <div class="tags">
-                <span class="pill" data-i18n="routine.chc.pill.pc">プライマリケア統合</span>
-                <span class="pill" data-i18n="routine.chc.pill.sliding">スライディングスケール</span>
+                <span class="pill" data-i18n="routine.chc.pill.pc">Integrated primary care</span>
+                <span class="pill" data-i18n="routine.chc.pill.sliding">Sliding scale</span>
               </div>
             </header>
-            <p class="explainer" data-i18n="routine.chc.desc">連邦認定のコミュニティ健康センター（FQHC）。医療、歯科、行動健康、薬局サービスを提供し、保険未加入者にはスライディングスケールの支払制度があります。</p>
+            <p class="explainer" data-i18n="routine.chc.desc">Adult-friendly Federally Qualified Health Center (FQHC) in northeast Oklahoma offering primary care, dental, behavioral-health counseling and medication services (via on-site pharmacy), with sliding-fee option for uninsured.</p>
             <div class="actions">
-              <a class="btn call-btn" href="#" data-i18n="routine.callBtn">電話する</a>
-              <a class="btn btn-outline site-btn" href="#" target="_blank" rel="noopener" data-i18n="routine.siteBtn">ウェブサイト</a>
-              <a class="btn btn-outline apply-btn" href="#" target="_blank" rel="noopener" data-i18n="routine.applyBtn">オンライン申込</a>
+              <a class="btn call-btn" href="tel:+19186220641" data-i18n="routine.callBtn">Call</a>
+              <a class="btn btn-outline site-btn" href="https://communityhealthconnection.org/services/behavioral-health/" target="_blank" rel="noopener" data-i18n="routine.chc.counselingBtn">Start Counseling</a>
+              <a class="btn btn-outline apply-btn" href="https://communityhealthconnection.org/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.chc.medicationBtn">Medication Support Appointment</a>
             </div>
           </article>
         </div>
 
         <div class="divider"></div>
-        <button class="btn btn-outline" data-reset data-i18n="reset">最初の質問に戻る</button>
+        <button class="btn btn-outline" data-reset data-i18n="reset">Back to the first question</button>
       </section>
     `;
 
