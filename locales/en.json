@@ -134,6 +134,14 @@
   "routine.chc.counselingBtn": "Start Counseling",
   "routine.chc.medicationBtn": "Medication Support Appointment",
 
+  "routine.mhac.full": "Mental Health Assistance Center",
+  "routine.mhac.desc": "Free resource referral line offering one-on-one assistance to help find the best referral option and navigate the mental health system.",
+  "routine.mhac.callBtn": "Call 918-585-1213",
+  "routine.mhac.callBtnOKC": "Call OKC (405-943-3700)",
+  "routine.mhac.pill.free": "Free referral line",
+  "routine.mhac.pill.personal": "1:1 assistance",
+  "routine.mhac.pill.navigation": "Navigation support",
+
   "reassure.title": "Cost, language, and privacy",
   "reassure.subtitle": "You are not alone. Support is available regardless of insurance status or ability to pay. Many services are free or offered on a sliding scale based on income.",
   "reassure.lang": "Language: English and Spanish available. Free interpreters can be arranged for other languages. Please state your preferred language when contacting.",

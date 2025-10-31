@@ -132,6 +132,14 @@
   "routine.chc.pill.sliding": "スライディングスケール",
   "routine.chc.desc": "連邦認定のコミュニティ健康センター（FQHC）。医療、歯科、行動健康、薬局サービスを提供し、保険未加入者にはスライディングスケールの支払制度があります。",
 
+  "routine.mhac.full": "メンタルヘルス・アシスタンス・センター",
+  "routine.mhac.desc": "無料のリファーラル専用窓口。個別に最適な紹介先探しをお手伝いし、メンタルヘルスの制度・窓口の案内を行います。",
+  "routine.mhac.callBtn": "918-585-1213 に電話する",
+  "routine.mhac.callBtnOKC": "OKC（405-943-3700）に電話する",
+  "routine.mhac.pill.free": "無料の紹介窓口",
+  "routine.mhac.pill.personal": "個別サポート",
+  "routine.mhac.pill.navigation": "制度ナビゲーション",
+
   "reassure.title": "費用・言語・プライバシーについて",
   "reassure.subtitle": "あなたは一人ではありません。保険の有無や支払い能力にかかわらず、利用できる支援があります。多くのサービスは無料、または収入に応じた割引料金で提供されています。",
   "reassure.lang": "言語：英語/スペイン語に対応。その他の言語は無料通訳を手配可能。連絡時に希望言語をお伝えください。",

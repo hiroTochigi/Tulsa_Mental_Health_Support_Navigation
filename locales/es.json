@@ -132,6 +132,14 @@
   "routine.chc.pill.sliding": "Escala variable",
   "routine.chc.desc": "Centro de salud comunitario certificado (FQHC) que ofrece servicios médicos, dentales, de salud conductual y farmacia; escala variable disponible para personas sin seguro.",
 
+  "routine.mhac.full": "Centro de Asistencia de Salud Mental",
+  "routine.mhac.desc": "Línea gratuita de referencias que brinda asistencia personalizada para encontrar la mejor opción de referencia y navegar el sistema de salud mental.",
+  "routine.mhac.callBtn": "Llamar al 918-585-1213",
+  "routine.mhac.callBtnOKC": "Llamar a OKC (405-943-3700)",
+  "routine.mhac.pill.free": "Línea de referencias gratuita",
+  "routine.mhac.pill.personal": "Asistencia personalizada",
+  "routine.mhac.pill.navigation": "Orientación en el sistema",
+
   "reassure.title": "Costo, idioma y privacidad",
   "reassure.subtitle": "No está solo. El apoyo está disponible independientemente de su seguro o capacidad de pago. Muchos servicios son gratuitos o se ofrecen en una escala variable según los ingresos.",
   "reassure.lang": "Idiomas: Inglés y español disponibles. Se pueden organizar intérpretes gratuitos para otros idiomas. Por favor indique su idioma preferido al comunicarse.",
