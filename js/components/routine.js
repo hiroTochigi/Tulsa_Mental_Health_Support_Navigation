@@ -50,7 +50,7 @@ class MHRoutine extends HTMLElement {
             </header>
             <p class="explainer" data-i18n="routine.crs.desc">Nonprofit based in Tulsa, OK. Provides mental health care, counseling, substance use treatment, and crisis response services.</p>
             <div class="actions">
-              <a class="btn call-btn" href="tel:+19184922554" data-i18n="routine.callBtn">Call</a>
+              <a class="btn call-btn" href="tel:+19184922554" data-i18n="routine.crs.callBtn">Call 918-492-2554</a>
               <a class="btn btn-outline site-btn" href="https://crsok.org/adult-services/" target="_blank" rel="noopener" data-i18n="routine.siteBtn">Website</a>
               <a class="btn btn-outline apply-btn" href="https://crsok.org/contact-us/" target="_blank" rel="noopener" data-i18n="routine.applyBtn">Get in Touch</a>
               <button
@@ -88,7 +88,7 @@ class MHRoutine extends HTMLElement {
             </header>
             <p class="explainer" data-i18n="routine.fcs.desc">Comprehensive behavioral-health services for adults, youth and families in the Tulsa area, including outpatient counseling, medication management, integrated healthcare and crisis stabilization.</p>
             <div class="actions">
-              <a class="btn call-btn" href="tel:+19185879471" data-i18n="routine.callBtn">Call</a>
+              <a class="btn call-btn" href="tel:+19185879471" data-i18n="routine.fcs.callBtn">Call 918-587-9471</a>
               <a class="btn btn-outline site-btn" href="https://www.fcsok.org/services/adult-and-family-counseling/" target="_blank" rel="noopener" data-i18n="routine.fcs.siteBtn">Start Counselling & Therapy</a>
               <a class="btn btn-outline apply-btn" href="https://www.fcsok.org/services/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.fcs.applyBtn">Get Medication Help & Management</a>
             </div>
@@ -113,7 +113,7 @@ class MHRoutine extends HTMLElement {
             </header>
             <p class="explainer" data-i18n="routine.chc.desc">Adult-friendly Federally Qualified Health Center (FQHC) in northeast Oklahoma offering primary care, dental, behavioral-health counseling and medication services (via on-site pharmacy), with sliding-fee option for uninsured.</p>
             <div class="actions">
-              <a class="btn call-btn" href="tel:+19186220641" data-i18n="routine.callBtn">Call</a>
+              <a class="btn call-btn" href="tel:+19186220641" data-i18n="routine.chc.callBtn">Call 918-622-0641</a>
               <a class="btn btn-outline site-btn" href="https://communityhealthconnection.org/services/behavioral-health/" target="_blank" rel="noopener" data-i18n="routine.chc.counselingBtn">Start Counseling</a>
               <a class="btn btn-outline apply-btn" href="https://communityhealthconnection.org/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.chc.medicationBtn">Medication Support Appointment</a>
             </div>

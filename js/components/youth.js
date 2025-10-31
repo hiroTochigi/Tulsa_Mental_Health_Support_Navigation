@@ -19,6 +19,13 @@ class MHYouth extends HTMLElement {
         role="region"
         aria-labelledby="${sectionId}-title"
       >
+        <style>
+          /* Scope spacing tweaks to this section only */
+          #${sectionId} .option-card .title { margin: 4px 0 10px; line-height: 1.2; }
+          #${sectionId} .option-card .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 12px; }
+          #${sectionId} .option-card .desc { margin: 6px 0 16px; }
+          #${sectionId} .option-card .btn-row { margin-top: 6px; gap: 10px; }
+        </style>
         <h3 id="${sectionId}-title" data-i18n="youth.title">若年層向けの24時間支援</h3>
 
         <div class="option-list">
@@ -37,14 +44,25 @@ class MHYouth extends HTMLElement {
 
               <p class="desc" data-i18n="youth.yesTulsaDesc">青少年向けの危機対応と支援。24時間いつでも相談できます。</p>
 
-              <a
-                class="btn btn-outline btn-flex"
-                href="tel:+19187794357"
-                data-i18n="youth.yesTulsaBtn"
-                data-i18n-attr="aria-label:youth.yesTulsaCallAria"
-              >
-                918-779-HELP <span class="sr-only">(918-779-4357)</span>
-              </a>
+              <div class="btn-row">
+                <a
+                  class="btn btn-outline btn-flex"
+                  href="tel:+19187794357"
+                  data-i18n="youth.yesTulsaBtn"
+                  data-i18n-attr="aria-label:youth.yesTulsaCallAria"
+                >
+                  918-779-HELP <span class="sr-only">(918-779-4357)</span>
+                </a>
+                <a
+                  class="btn btn-outline site-btn"
+                  href="https://crsok.org/yestulsa/"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="routine.siteBtn"
+                >
+                  Website
+                </a>
+              </div>
             </div>
           </article>
 
@@ -64,14 +82,25 @@ class MHYouth extends HTMLElement {
 
               <p class="desc" data-i18n="youth.calmDesc">危機的な状況の青少年に短期入院や安定化サービスを提供します。</p>
 
-              <a
-                class="btn btn-outline btn-flex"
-                href="tel:+19183942256"
-                data-i18n="youth.calmBtn"
-                data-i18n-attr="aria-label:youth.calmCallAria"
-              >
-                918-394-2256
-              </a>
+              <div class="btn-row">
+                <a
+                  class="btn btn-outline btn-flex"
+                  href="tel:+19183942256"
+                  data-i18n="youth.calmBtn"
+                  data-i18n-attr="aria-label:youth.calmCallAria"
+                >
+                  918-394-2256
+                </a>
+                <a
+                  class="btn btn-outline site-btn"
+                  href="https://crsok.org/the-calm-center/"
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="routine.siteBtn"
+                >
+                  Website
+                </a>
+              </div>
             </div>
           </article>
         </div>
@@ -94,4 +123,3 @@ class MHYouth extends HTMLElement {
 }
 
 customElements.define("mh-youth", MHYouth);
-
