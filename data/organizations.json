@@ -1,0 +1,151 @@
+[
+  {
+    "slug": "crs",
+    "name": "Counseling & Recovery Services",
+    "section": "routine",
+    "explanation": "Nonprofit based in Tulsa, OK. Provides mental health care, counseling, substance use treatment, and crisis response services.",
+    "attributes": ["Uninsured OK", "Sliding scale"],
+    "phone": "+19184922554",
+    "links": [
+      { "type": "call", "label": "Call", "url": "tel:+19184922554" },
+      { "type": "site", "label": "Website", "url": "https://crsok.org/adult-services/" },
+      { "type": "contact", "label": "Get in Touch", "url": "https://crsok.org/contact-us/" }
+    ]
+  },
+  {
+    "slug": "211eok",
+    "name": "2-1-1 Eastern Oklahoma",
+    "section": "routine",
+    "explanation": "Free, confidential information and referral for health and human services across Eastern Oklahoma. Available 24/7 by phone, with weekday text, live chat, and an online directory.",
+    "attributes": [
+      "24/7 phone",
+      "Free",
+      "Confidential",
+      "Resource referral",
+      "Eastern Oklahoma",
+      "Text & live chat"
+    ],
+    "phone": "211",
+    "hours": "Phone 24/7; Text/Chat Mon–Fri 8am–8pm",
+    "links": [
+      { "type": "call", "label": "Call 2-1-1 (24/7)", "url": "tel:211" },
+      { "type": "text", "label": "Text ZIP to (877) 836-2111 (M–F 8am–8pm)", "url": "sms:+18778362111" },
+      { "type": "chat", "label": "Live Chat (M–F 8am–8pm)", "url": "https://home-c11.incontact.com/incontact/chatclient/chatclient.aspx?poc=9324c21d-03b7-49c3-a5be-e4d1b79a3c35&bu=4594083" },
+      { "type": "site", "label": "Search Directory (24/7)", "url": "http://www.navigateresources.net/tulh/" },
+      { "type": "site", "label": "Website", "url": "https://211eok.org/" }
+    ]
+  },
+  {
+    "slug": "fcs",
+    "name": "Family & Children’s Services",
+    "section": "routine",
+    "explanation": "Comprehensive behavioral-health services for adults, youth and families in the Tulsa area, including outpatient counseling, medication management, integrated healthcare and crisis stabilization.",
+    "attributes": ["Sliding scale"],
+    "phone": "+19185879471",
+    "links": [
+      { "type": "call", "label": "Call", "url": "tel:+19185879471" },
+      { "type": "service", "label": "Start Counselling & Therapy", "url": "https://www.fcsok.org/services/adult-and-family-counseling/" },
+      { "type": "pharmacy", "label": "Get Medication Help & Management", "url": "https://www.fcsok.org/services/pharmacy/" }
+    ]
+  },
+  {
+    "slug": "chc",
+    "name": "Community Health Connection",
+    "section": "routine",
+    "explanation": "Adult-friendly Federally Qualified Health Center (FQHC) in northeast Oklahoma offering primary care, dental, behavioral-health counseling and medication services (via on-site pharmacy), with sliding-fee option for uninsured.",
+    "attributes": ["Integrated primary care", "Sliding scale"],
+    "phone": "+19186220641",
+    "links": [
+      { "type": "call", "label": "Call", "url": "tel:+19186220641" },
+      { "type": "counseling", "label": "Start Counseling", "url": "https://communityhealthconnection.org/services/behavioral-health/" },
+      { "type": "pharmacy", "label": "Medication Support Appointment", "url": "https://communityhealthconnection.org/pharmacy/" }
+    ]
+  },
+  {
+    "slug": "mhaok-mhac",
+    "name": "Mental Health Assistance Center",
+    "section": "routine",
+    "explanation": "Free resource referral line offering one-on-one assistance to help find the best referral option and navigate the mental health system.",
+    "attributes": ["Free referral line", "One-on-one assistance", "Navigation support"],
+    "phone": "+19185851213",
+    "hours": "Mon–Fri 8:30am–5pm",
+    "links": [
+      { "type": "call", "label": "Call (918-585-1213)", "url": "tel:+19185851213" },
+      { "type": "call", "label": "Call OKC (405-943-3700)", "url": "tel:+14059433700" },
+      { "type": "site", "label": "Website", "url": "https://mhaok.org/about/mental-health-assistance-center-form/" }
+    ]
+  },
+  {
+    "slug": "yes-tulsa",
+    "name": "YES Tulsa",
+    "section": "youth",
+    "explanation": "Provides immediate crisis response, assessment, stabilization, and coordination referral for families and youth ages 5-17 years old, 24 hours a day, 7 days a week.",
+    "attributes": [
+      "Ages 5-17",
+      "24/7",
+      "Urgent crisis intervention",
+      "Emergency mental health screening",
+      "State funded",
+      "Accessible to all"
+    ],
+    "phone": "+19187794357",
+    "hours": "24/7",
+    "links": [
+      { "type": "call", "label": "Call YES Tulsa (918-779-4357)", "url": "tel:+19187794357" },
+      { "type": "site", "label": "About YES Tulsa Services", "url": "https://crsok.org/yestulsa/" }
+    ]
+  },
+  {
+    "slug": "calm-center",
+    "name": "CALM Center",
+    "section": "youth",
+    "explanation": "The CALM Center is a safe and caring place for youth ages 10-17 to receive immediate support, assessment and stabilization for an emotional, behavioral or substance abuse crisis.",
+    "attributes": [
+      "Ages 10-17",
+      "Short-term inpatient",
+      "Crisis stabilization",
+      "24/7",
+      "No referral necessary",
+      "Care provided regardless of ability to pay"
+    ],
+    "phone": "+19183942256",
+    "hours": "24/7",
+    "links": [
+      { "type": "call", "label": "Call CALM Center (918-394-2256)", "url": "tel:+19183942256" },
+      { "type": "site", "label": "About CALM Center Services", "url": "https://crsok.org/the-calm-center/" }
+    ]
+  },
+  {
+    "slug": "grandmh-urc",
+    "name": "Grand Mental Health – URC",
+    "section": "adult-crisis",
+    "explanation": "Serving as an alternative to traditional emergency rooms by providing 24/7 walk-in access to appropriate care for adults experiencing a behavioral health and/or substance abuse crisis.",
+    "attributes": [
+      "Adults",
+      "Walk-in",
+      "24/7",
+      "Crisis stabilization",
+      "Substance abuse crisis",
+      "Alternative to ER"
+    ],
+    "phone": "+18007223611",
+    "address": "6128 E 38th St (Main Campus) Tulsa OK 74135",
+    "hours": "24/7",
+    "links": [
+      { "type": "visit", "label": "Visit URC (24h / No appointment)", "url": "https://www.grandmh.com/services-programs/urgent-recover-centers/" },
+      { "type": "call", "label": "Call 24/7 Crisis Line", "url": "tel:+18007223611" },
+      { "type": "locations", "label": "View All Locations", "url": "https://www.grandmh.com/locations/" }
+    ]
+  },
+  {
+    "slug": "copes",
+    "name": "COPES (Community Outreach Psychiatric Emergency Services)",
+    "section": "emergency",
+    "explanation": "COPES (Community Outreach Psychiatric Emergency Services) is Tulsa's mobile crisis response team. Trained professionals can come to you.",
+    "attributes": ["Available 24/7", "Phone counseling", "Mobile crisis response", "For psychiatric or emotional emergencies"],
+    "phone": "+19187444800",
+    "links": [
+      { "type": "call", "label": "Call 918-744-4800", "url": "tel:+19187444800" }
+    ]
+  }
+]

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wizard Visibility Tests</title>
+    <style>
+      body { font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: #e6edf3; background: #0b1427; }
+      .wrap { max-width: 900px; margin: 24px auto; padding: 0 12px; }
+      h1 { font-size: 18px; margin: 0 0 12px; }
+      .summary { display: flex; gap: 12px; align-items: center; margin: 8px 0 16px; }
+      .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 999px; border: 1px solid #223049; }
+      .badge.pass { background: #0b2a17; color: #9fe6b8; border-color: #204a2d; }
+      .badge.fail { background: #2a0b12; color: #ffb3b3; border-color: #4a1f25; }
+      .log { border: 1px solid #223049; border-radius: 8px; padding: 8px; background: #0e1a33; }
+      .log .ok { color: #8ce3b0; }
+      .log .err { color: #ff9aa2; }
+      iframe { width: 100%; height: 720px; border: 1px solid #223049; border-radius: 8px; background: #0b1427; }
+      code { background: rgba(255,255,255,.06); padding: 0 4px; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Wizard Visibility Tests</h1>
+      <div class="summary">
+        <span class="badge pass" id="passBadge">Pass: 0</span>
+        <span class="badge fail" id="failBadge">Fail: 0</span>
+      </div>
+      <div class="log" id="log" aria-live="polite"></div>
+      <p>App under test:</p>
+      <iframe id="app" src="../index.html"></iframe>
+    </div>
+
+    <script>
+      const logEl = document.getElementById('log');
+      const passBadge = document.getElementById('passBadge');
+      const failBadge = document.getElementById('failBadge');
+      let passCount = 0, failCount = 0;
+
+      function logOk(msg) {
+        passCount++; passBadge.textContent = `Pass: ${passCount}`;
+        const p = document.createElement('div'); p.className = 'ok'; p.textContent = `✓ ${msg}`; logEl.appendChild(p);
+      }
+      function logErr(msg) {
+        failCount++; failBadge.textContent = `Fail: ${failCount}`;
+        const p = document.createElement('div'); p.className = 'err'; p.textContent = `✗ ${msg}`; logEl.appendChild(p);
+      }
+      function assert(condition, message) { condition ? logOk(message) : logErr(message); }
+
+      function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+      async function waitFor(fn, { timeout = 4000, interval = 50 } = {}) {
+        const start = performance.now();
+        let lastErr;
+        while (performance.now() - start < timeout) {
+          try {
+            const v = fn();
+            if (v) return v;
+          } catch (e) { lastErr = e; }
+          await delay(interval);
+        }
+        if (lastErr) throw lastErr;
+        throw new Error('waitFor: timed out');
+      }
+
+      function inFrame() {
+        const frame = document.getElementById('app');
+        return frame.contentWindow;
+      }
+      function $(sel, root) { return (root || inFrame().document).querySelector(sel); }
+      function $all(sel, root) { return Array.from((root || inFrame().document).querySelectorAll(sel)); }
+      function isHidden(el) { return !el || el.classList.contains('hidden'); }
+      function isVisible(el) { return !!el && !el.classList.contains('hidden'); }
+
+      async function resetToStart() {
+        // Use any visible reset button, else reload the iframe
+        const resetBtn = $('[data-reset]');
+        if (resetBtn) {
+          resetBtn.click();
+          await delay(50);
+        } else {
+          const frame = document.getElementById('app');
+          frame.src = frame.src;
+          await waitAppReady();
+        }
+      }
+
+      async function waitAppReady() {
+        // Wait for iframe to fully load and wizard to initialize its initial visibility
+        const frame = document.getElementById('app');
+        if (frame.contentDocument?.readyState !== 'complete') {
+          await new Promise((res) => frame.addEventListener('load', res, { once: true }));
+        }
+        // Then wait until Step A is visible and Step B is hidden
+        await waitFor(() => {
+          const d = inFrame().document;
+          const a = d.getElementById('stepA');
+          const b = d.getElementById('stepB');
+          return a && b && isVisible(a) && isHidden(b);
+        }, { timeout: 5000 });
+      }
+
+      async function run() {
+        try {
+          await waitAppReady();
+
+          // Initial state
+          assert(isVisible($('#stepA')), 'Initial: Step A visible');
+          assert(isHidden($('#stepB')), 'Initial: Step B hidden');
+          assert(isHidden($('#stepC')), 'Initial: Step C hidden');
+          assert(isHidden($('#stepD')), 'Initial: Step D hidden');
+          assert(isHidden($('#emergency')), 'Initial: Emergency hidden');
+          assert(isHidden($('#youth')), 'Initial: Youth hidden');
+          assert(isHidden($('#adult-crisis')), 'Initial: Adult-crisis hidden');
+          assert(isHidden($('#highcare')), 'Initial: Highcare hidden');
+          assert(isHidden($('#routine')), 'Initial: Routine hidden');
+
+          // A: Emergency path
+          $('[data-next="emergency"]').click();
+          await delay(50);
+          assert(isVisible($('#emergency')), 'A: Emergency component visible after emergency click');
+          assert(isHidden($('#stepB')), 'A: Step B hidden after emergency');
+          await resetToStart();
+
+          // A -> B: Adult vs Youth path
+          $('[data-next="stepB"]').click();
+          await delay(50);
+          assert(isVisible($('#stepB')), 'B: Step B visible after A -> No');
+
+          // B: youth
+          $('#stepB [data-next="youth"]').click();
+          await delay(50);
+          assert(isVisible($('#youth')), 'B: Youth component visible for minor');
+          await resetToStart();
+
+          // B: adult -> C
+          $('[data-next="stepB"]').click();
+          await delay(50);
+          $('#stepB [data-next="stepC"]').click();
+          await delay(50);
+          assert(isVisible($('#stepC')), 'C: Step C visible for adult');
+
+          // C: crisis -> adult-crisis component
+          $('#stepC [data-next="adult-crisis"]').click();
+          await delay(50);
+          assert(isVisible($('#adult-crisis')), 'C: Adult-crisis component visible');
+          // Flip back to No at C: should hide adult-crisis and show Step D
+          $('#stepC [data-next="stepD"]').click();
+          await delay(50);
+          assert(isVisible($('#stepD')), 'C flip: Step D visible after clicking No');
+          assert(isHidden($('#adult-crisis')), 'C flip: Adult-crisis hidden after clicking No');
+          await resetToStart();
+
+          // C: non-crisis -> D
+          $('[data-next="stepB"]').click();
+          await delay(50);
+          $('#stepB [data-next="stepC"]').click();
+          await delay(50);
+          $('#stepC [data-next="stepD"]').click();
+          await delay(50);
+          assert(isVisible($('#stepD')), 'D: Step D visible after non-crisis');
+
+          // D: Highcare via detox/psychosis
+          $('#stepD input[value="detox"]').click();
+          document.getElementById('app').contentWindow.document.getElementById('evaluate').click();
+          await delay(50);
+          assert(isVisible($('#highcare')), 'D: Highcare visible when detox selected');
+          assert(isHidden($('#routine')), 'D: Routine hidden when detox selected');
+          await resetToStart();
+
+          // D: Routine when non-urgent needs
+          $('[data-next="stepB"]').click();
+          await delay(50);
+          $('#stepB [data-next="stepC"]').click();
+          await delay(50);
+          $('#stepC [data-next="stepD"]').click();
+          await delay(50);
+          $('#stepD input[value="therapy"]').click();
+          document.getElementById('app').contentWindow.document.getElementById('evaluate').click();
+          await delay(50);
+          assert(isVisible($('#routine')), 'D: Routine visible when therapy selected');
+          assert(isHidden($('#highcare')), 'D: Highcare hidden when therapy selected');
+
+          // Reset returns to A
+          await resetToStart();
+          assert(isVisible($('#stepA')), 'Reset: back to Step A');
+
+        } catch (e) {
+          logErr(e && e.message ? e.message : String(e));
+          console.error(e);
+        }
+      }
+
+      run();
+    </script>
+  </body>
+  </html>

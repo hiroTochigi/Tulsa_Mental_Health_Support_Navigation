@@ -49,6 +49,10 @@ class MHEmergency extends HTMLElement {
           #${sectionId} .card--local { border-left: 4px solid #b91c1c; }
           #${sectionId} .card--local .icon { color: #b91c1c; }
 
+          /* 2-1-1 referral/info (distinct accent) */
+          #${sectionId} .card--211 { border-left: 4px solid #ef4444; }
+          #${sectionId} .card--211 .icon { color: #ef4444; }
+
           /* Actions layout */
           #${sectionId} .actions {
             display: flex;
@@ -122,6 +126,29 @@ class MHEmergency extends HTMLElement {
           <div class="actions">
             <a class="btn btn-primary" href="tel:988" data-i18n="emergency.call988Explained"></a>
             <a class="btn btn-outline" href="sms:988" data-i18n="emergency.text988Explained"></a>
+          </div>
+        </article>
+
+        <!-- Card B2: 2-1-1 Eastern Oklahoma (information & referral) -->
+        <article class="card card--211" role="group" aria-labelledby="${sectionId}-211-heading">
+          <header>
+            <span class="icon" aria-hidden="true">
+              <!-- Headset/help icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                <path d="M12 3a7 7 0 0 0-7 7v3"/>
+                <path d="M12 3a7 7 0 0 1 7 7v3"/>
+                <path d="M4 13v3a2 2 0 0 0 2 2h1"/>
+                <path d="M20 13v3a2 2 0 0 1-2 2h-1"/>
+              </svg>
+            </span>
+            <h4 id="${sectionId}-211-heading" data-i18n="emergency.211Label"></h4>
+          </header>
+          <p class="explainer" data-i18n="emergency.211Explainer"></p>
+          <div class="actions">
+            <a class="btn" href="tel:211" data-i18n="emergency.call211Btn"></a>
+            <a class="btn btn-outline" href="sms:+18778362111" data-i18n="emergency.text211Btn"></a>
+            <a class="btn btn-outline" target="_blank" href="https://home-c11.incontact.com/incontact/chatclient/chatclient.aspx?poc=9324c21d-03b7-49c3-a5be-e4d1b79a3c35&bu=4594083" data-i18n="emergency.chat211Btn"></a>
+            <a class="btn btn-outline" target="_blank" href="http://www.navigateresources.net/tulh/" data-i18n="emergency.search211Btn"></a>
           </div>
         </article>
 
