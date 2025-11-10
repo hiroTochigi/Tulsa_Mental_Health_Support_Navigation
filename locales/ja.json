@@ -98,6 +98,7 @@
   "D.options.psychosis": "幻覚や深刻な混乱を経験している",
   "D.options.therapy": "カウンセリングやセラピーが必要",
   "D.options.meds": "薬のことで助けが必要",
+  "D.options.mhac": "どこに相談すればよいか分からない・案内がほしい（MHAOK）",
   "D.showResults": "結果を表示",
 
   "highcare.title": "至急の医療評価を推奨",

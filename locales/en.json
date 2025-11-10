@@ -98,6 +98,7 @@
   "D.options.psychosis": "I am experiencing hallucinations or severe confusion",
   "D.options.therapy": "I need counseling or therapy",
   "D.options.meds": "I need help with medication",
+  "D.options.mhac": "I don't know where to start / I want navigation (MHAOK)",
   "D.showResults": "Show results",
 
   "highcare.title": "Urgent medical evaluation recommended",

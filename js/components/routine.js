@@ -118,31 +118,6 @@ class MHRoutine extends HTMLElement {
               <a class="btn btn-outline apply-btn" href="https://communityhealthconnection.org/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.chc.medicationBtn">Medication Support Appointment</a>
             </div>
           </article>
-
-          <!-- Mental Health Assistance Center (MHAOK) -->
-          <article class="card card--agency card--mhac" data-agency="mhac" data-phone="918-585-1213" role="group" aria-labelledby="${sectionId}-mhac-title">
-            <header>
-              <div class="left">
-                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M12 8v4"/>
-                  <path d="M12 16h.01"/>
-                </svg>
-                <h4 id="${sectionId}-mhac-title" data-i18n="routine.mhac.full">Mental Health Assistance Center</h4>
-              </div>
-              <div class="tags">
-                <span class="pill" data-i18n="routine.mhac.pill.free">Free referral line</span>
-                <span class="pill" data-i18n="routine.mhac.pill.personal">1:1 assistance</span>
-                <span class="pill" data-i18n="routine.mhac.pill.navigation">Navigation support</span>
-              </div>
-            </header>
-            <p class="explainer" data-i18n="routine.mhac.desc">Free resource referral line offering one-on-one assistance to help find the best referral option and navigate the mental health system.</p>
-            <div class="actions">
-              <a class="btn call-btn" href="tel:+19185851213" data-i18n="routine.mhac.callBtn">Call 918-585-1213</a>
-              <a class="btn btn-outline call-btn" href="tel:+14059433700" data-i18n="routine.mhac.callBtnOKC">Call OKC (405-943-3700)</a>
-              <a class="btn btn-outline site-btn" href="https://mhaok.org/about/mental-health-assistance-center-form/" target="_blank" rel="noopener" data-i18n="routine.siteBtn">Website</a>
-            </div>
-          </article>
         </div>
 
         <div class="divider"></div>
