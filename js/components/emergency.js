@@ -14,6 +14,8 @@ class MHEmergency extends HTMLElement {
       >
         <style>
           /* Scope styles to this section to avoid bleed */
+
+          /* General Card Styles */
           #${sectionId} .card {
             padding: 16px;
             border-radius: 12px;
@@ -36,56 +38,120 @@ class MHEmergency extends HTMLElement {
             align-items: center;
             justify-content: center;
           }
-          #${sectionId} .card h4 { margin: 0; font-size: 1.05rem; }
-          #${sectionId} .card .explainer { margin: 6px 0 12px; }
+          #${sectionId} .card h4 {
+            margin: 0;
+            font-size: 1.05rem;
+          }
+          #${sectionId} .card .explainer {
+            margin: 6px 0 12px;
+          }
 
-          /* Accent variants */
-          #${sectionId} .card--emergency { border-left: 4px solid #e02424; }
-          #${sectionId} .card--emergency .icon { color: #e02424; }
+          /* Accent Variants */
+          #${sectionId} .card--emergency {
+            border-left: 4px solid #e02424;
+          }
+          #${sectionId} .card--emergency .icon {
+            color: #e02424;
+          }
 
-          #${sectionId} .card--crisis { border-left: 4px solid #dc2626; }
-          #${sectionId} .card--crisis .icon { color: #dc2626; }
+          #${sectionId} .card--crisis {
+            border-left: 4px solid #dc2626;
+          }
+          #${sectionId} .card--crisis .icon {
+            color: #dc2626;
+          }
 
-          #${sectionId} .card--local { border-left: 4px solid #b91c1c; }
-          #${sectionId} .card--local .icon { color: #b91c1c; }
+          #${sectionId} .card--local {
+            border-left: 4px solid #b91c1c;
+          }
+          #${sectionId} .card--local .icon {
+            color: #b91c1c;
+          }
 
-          /* 2-1-1 referral/info (distinct accent) */
-          #${sectionId} .card--211 { border-left: 4px solid #ef4444; }
-          #${sectionId} .card--211 .icon { color: #ef4444; }
+          #${sectionId} .card--211 {
+            border-left: 4px solid #ef4444;
+          }
+          #${sectionId} .card--211 .icon {
+            color: #ef4444;
+          }
 
-          /* Actions layout */
+          /* Button Styles */
+          #${sectionId} .btn-primary {
+            background: #dc2626;
+            border-color: #dc2626;
+            color: #fff;
+          }
+          #${sectionId} .btn-primary:hover {
+            filter: brightness(1.05);
+          }
+
+          #${sectionId} .btn-support {
+            background: #b91c1c;
+            border-color: #b91c1c;
+            color: #fff;
+          }
+          #${sectionId} .btn-support:hover {
+            filter: brightness(1.05);
+          }
+
+          #${sectionId} .card--crisis .btn-outline {
+            color: #dc2626;
+            border-color: #dc2626;
+          }
+          #${sectionId} .card--crisis .btn-outline:hover {
+            background: rgba(220, 38, 38, 0.08);
+          }
+
+          #${sectionId} .card--local .btn-outline {
+            color: #b91c1c;
+            border-color: #b91c1c;
+          }
+          #${sectionId} .card--local .btn-outline:hover {
+            background: rgba(185, 28, 28, 0.08);
+          }
+
+          #${sectionId} .card--211 .btn:not(.btn-outline) {
+            background: #ef4444;
+            border-color: #ef4444;
+            color: #fff;
+          }
+          #${sectionId} .card--211 .btn:not(.btn-outline):hover {
+            filter: brightness(1.05);
+          }
+          #${sectionId} .card--211 .btn-outline {
+            color: #ef4444;
+            border-color: #ef4444;
+          }
+          #${sectionId} .card--211 .btn-outline:hover {
+            background: rgba(239, 68, 68, 0.08);
+          }
+
+          /* Actions Layout */
           #${sectionId} .actions {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
           }
-          #${sectionId} .actions > .btn { flex: 1 1 100%; }
+          #${sectionId} .actions > .btn {
+            flex: 1 1 100%;
+          }
           @media (min-width: 640px) {
-            #${sectionId} .actions > .btn { flex: 0 0 auto; }
+            #${sectionId} .actions > .btn {
+              flex: 0 0 auto;
+            }
           }
 
-          /* Utility for hidden text */
+          /* Utility Classes */
           #${sectionId} .sr-only {
-            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-          }
-
-          /* Local primary button variant for 988 (red variant) */
-          #${sectionId} .btn-primary { background: #dc2626; border-color: #dc2626; color: #fff; }
-          #${sectionId} .btn-primary:hover { filter: brightness(1.05); }
-          /* Support button for COPES (deeper red) */
-          #${sectionId} .btn-support { background: #b91c1c; border-color: #b91c1c; color: #fff; }
-          #${sectionId} .btn-support:hover { filter: brightness(1.05); }
-
-          /* Align outline button colors for 988 Text and COPES info */
-          #${sectionId} .card--crisis .btn-outline,
-          #${sectionId} .card--local .btn-outline {
-            color: #dc2626;
-            border-color: #dc2626;
-          }
-          #${sectionId} .card--crisis .btn-outline:hover,
-          #${sectionId} .card--local .btn-outline:hover {
-            background: rgba(220, 38, 38, 0.08);
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
           }
         </style>
         <h3 id="${sectionId}-title" data-i18n="emergency.title"></h3>
