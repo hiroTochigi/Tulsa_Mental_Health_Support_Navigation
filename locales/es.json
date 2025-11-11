@@ -93,7 +93,7 @@
   "adultCrisis.urc.pill1": "👥 Hablar con alguien cara a cara",
   "adultCrisis.urc.pill2": "⏰ Disponible en cualquier momento (24/7)",
 
-  "D.question": "D. ¿Cuál es la razón principal por la que busca ayuda hoy? (Seleccione todas las que correspondan)",
+  "D.question": "D. ¿Cuál es la razón principal por la que busca ayuda hoy? (Seleccione una)",
   "D.options.detox": "Quiero dejar de consumir drogas o alcohol de forma segura (desintoxicación)",
   "D.options.psychosis": "Estoy experimentando alucinaciones o una confusión grave",
   "D.options.therapy": "Necesito consejería o terapia",

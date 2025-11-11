@@ -94,35 +94,33 @@
         <!-- STEP D: 成人・特定ニーズ -->
         <section id="stepD" class="step hidden" aria-labelledby="qD">
           <div class="q" id="qD" data-i18n="D.question">
-            D. 本日、助けを求めている主な理由は何ですか？（複数選択可）
+            D. 本日、助けを求めている主な理由は何ですか？（1つ選択してください）
           </div>
-          <div class="checkboxes" role="group" aria-labelledby="qD">
-            <label
-              ><input type="checkbox" value="detox" /><span
-                data-i18n="D.options.detox"
-                >薬物やアルコールの使用を安全にやめたい（デトックス）</span
-              ></label
-            >
-            <label
-              ><input type="checkbox" value="psychosis" /><span
-                data-i18n="D.options.psychosis"
-                >幻覚や深刻な混乱を経験している</span
-              ></label
-            >
-            <label
-              ><input type="checkbox" value="therapy" /><span
-                data-i18n="D.options.therapy"
-                >カウンセリングやセラピーが必要</span
-              ></label
-            >
-            <label
-              ><input type="checkbox" value="meds" /><span
-                data-i18n="D.options.meds"
-                >薬のことで助けが必要</span
-              ></label
-            >
+          <div class="radios" role="group" aria-labelledby="qD">
             <label>
-              <input type="checkbox" value="mhac" />
+              <input type="radio" name="stepD-reason" value="detox" />
+              <span data-i18n="D.options.detox"
+                >薬物やアルコールの使用を安全にやめたい（デトックス）</span
+              >
+            </label>
+            <label>
+              <input type="radio" name="stepD-reason" value="psychosis" />
+              <span data-i18n="D.options.psychosis"
+                >幻覚や深刻な混乱を経験している</span
+              >
+            </label>
+            <label>
+              <input type="radio" name="stepD-reason" value="therapy" />
+              <span data-i18n="D.options.therapy"
+                >カウンセリングやセラピーが必要</span
+              >
+            </label>
+            <label>
+              <input type="radio" name="stepD-reason" value="meds" />
+              <span data-i18n="D.options.meds">薬のことで助けが必要</span>
+            </label>
+            <label>
+              <input type="radio" name="stepD-reason" value="mhac" />
               <span data-i18n="D.options.mhac"
                 >どこに相談すればよいか分からない・案内がほしい（MHAOK）</span
               >
@@ -144,8 +142,6 @@
         <mh-adult-crisis id="adult-crisis"></mh-adult-crisis>
         <mh-highcare id="highcare"></mh-highcare>
         <mh-routine id="routine"></mh-routine>
-
-        <!-- MHAOK: Mental Health Assistance Center -->
         <mh-mhac id="mhac"></mh-mhac>
 
         <!-- 安心メッセージ -->
@@ -333,17 +329,19 @@
 
       // Step D の評価ロジック
       function evaluateNeeds() {
-        const selected = $$("#stepD input[type=checkbox]:checked").map(
-          (cb) => cb.value
-        );
+        const selected = document.querySelector(
+          "#stepD input[name='stepD-reason']:checked"
+        )?.value;
         hideSections([SECTIONS.HIGHCARE, SECTIONS.ROUTINE, SECTIONS.MHAC]);
 
-        if (selected.includes("mhac")) {
+        if (!selected) return; // No selection made
+
+        if (selected === "mhac") {
           showSection(SECTIONS.MHAC);
           return;
         }
-        const needsHighCare =
-          selected.includes("detox") || selected.includes("psychosis");
+
+        const needsHighCare = selected === "detox" || selected === "psychosis";
         showSection(needsHighCare ? SECTIONS.HIGHCARE : SECTIONS.ROUTINE);
       }
 

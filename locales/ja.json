@@ -93,7 +93,7 @@
   "adultCrisis.urc.pill1": "👥 対面で相談できる",
   "adultCrisis.urc.pill2": "⏰ いつでも利用可（24時間365日）",
 
-  "D.question": "D. 本日、助けを求めている主な理由は何ですか？（複数選択可）",
+  "D.question": "D. 本日、助けを求めている主な理由は何ですか？（1つ選択してください）",
   "D.options.detox": "薬物やアルコールの使用を安全にやめたい（デトックス）",
   "D.options.psychosis": "幻覚や深刻な混乱を経験している",
   "D.options.therapy": "カウンセリングやセラピーが必要",

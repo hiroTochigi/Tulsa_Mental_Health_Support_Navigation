@@ -31,3 +31,7 @@ details summary {
   cursor: pointer;
   font-weight: 700;
 }
+
+.radios {
+  margin-bottom: 1.5rem; /* Add vertical gap below the radio buttons */
+}
