@@ -21,6 +21,7 @@
     <script defer src="js/components/adult-crisis.js"></script>
     <script defer src="js/components/routine.js"></script>
     <script defer src="js/components/mhac.js"></script>
+    <script defer src="js/components/resources211.js"></script>
   </head>
   <body>
     <div class="container">
@@ -125,6 +126,12 @@
                 >どこに相談すればよいか分からない・案内がほしい（MHAOK）</span
               >
             </label>
+            <label>
+              <input type="radio" name="stepD-reason" value="211" />
+              <span data-i18n="D.options.211">
+                生活の困りごと（食料、家賃、光熱費など）や地域の福祉サービスについて相談したい
+              </span>
+            </label>
           </div>
           <div class="btn-row">
             <button
@@ -143,6 +150,7 @@
         <mh-highcare id="highcare"></mh-highcare>
         <mh-routine id="routine"></mh-routine>
         <mh-mhac id="mhac"></mh-mhac>
+        <mh-211 id="resources211"></mh-211>
 
         <!-- 安心メッセージ -->
         <section class="step" aria-labelledby="reassure-h">
@@ -230,6 +238,7 @@
         HIGHCARE: "highcare",
         ROUTINE: "routine",
         MHAC: "mhac",
+        RESOURCES_211: "resources211",
       };
 
       // Highcare section id is fixed to 'highcare'
@@ -260,6 +269,7 @@
           SECTIONS.EMERGENCY,
           SECTIONS.HIGHCARE,
           SECTIONS.ROUTINE,
+          SECTIONS.RESOURCES_211,
         ];
         hideSections(allSections);
 
@@ -282,6 +292,7 @@
               SECTIONS.ADULT_CRISIS,
               SECTIONS.HIGHCARE,
               SECTIONS.ROUTINE,
+              SECTIONS.RESOURCES_211,
             ]);
             break;
           case SECTIONS.STEP_B:
@@ -293,6 +304,7 @@
               SECTIONS.ADULT_CRISIS,
               SECTIONS.HIGHCARE,
               SECTIONS.ROUTINE,
+              SECTIONS.RESOURCES_211,
             ]);
             break;
           case SECTIONS.STEP_C:
@@ -303,6 +315,7 @@
               SECTIONS.ADULT_CRISIS,
               SECTIONS.HIGHCARE,
               SECTIONS.ROUTINE,
+              SECTIONS.RESOURCES_211,
             ]);
             break;
           case SECTIONS.STEP_D:
@@ -312,6 +325,7 @@
               SECTIONS.ADULT_CRISIS,
               SECTIONS.HIGHCARE,
               SECTIONS.ROUTINE,
+              SECTIONS.RESOURCES_211,
             ]);
             break;
           case SECTIONS.ADULT_CRISIS:
@@ -321,6 +335,7 @@
               SECTIONS.STEP_D,
               SECTIONS.HIGHCARE,
               SECTIONS.ROUTINE,
+              SECTIONS.RESOURCES_211,
             ]);
             break;
         }
@@ -332,12 +347,21 @@
         const selected = document.querySelector(
           "#stepD input[name='stepD-reason']:checked"
         )?.value;
-        hideSections([SECTIONS.HIGHCARE, SECTIONS.ROUTINE, SECTIONS.MHAC]);
+        hideSections([
+          SECTIONS.HIGHCARE,
+          SECTIONS.ROUTINE,
+          SECTIONS.MHAC,
+          SECTIONS.RESOURCES_211,
+        ]);
 
         if (!selected) return; // No selection made
 
         if (selected === "mhac") {
           showSection(SECTIONS.MHAC);
+          return;
+        }
+        if (selected === "211") {
+          showSection(SECTIONS.RESOURCES_211);
           return;
         }
 
@@ -359,7 +383,7 @@
 
         // reset ボタン（静的セクション）
         $$(
-          `#${SECTIONS.EMERGENCY} [data-reset], #${SECTIONS.YOUTH} [data-reset], #${SECTIONS.ADULT_CRISIS} [data-reset], #${SECTIONS.ROUTINE} [data-reset]`
+          `#${SECTIONS.EMERGENCY} [data-reset], #${SECTIONS.YOUTH} [data-reset], #${SECTIONS.ADULT_CRISIS} [data-reset], #${SECTIONS.ROUTINE} [data-reset], #${SECTIONS.MHAC} [data-reset], #${SECTIONS.RESOURCES_211} [data-reset]`
         ).forEach((btn) => {
           btn.addEventListener("click", resetWizard);
         });

@@ -99,6 +99,7 @@
   "D.options.therapy": "I need counseling or therapy",
   "D.options.meds": "I need help with medication",
   "D.options.mhac": "I don't know where to start / I want navigation (MHAOK)",
+  "D.options.211": "I want help with basic needs (food, rent, utilities) or local social services",
   "D.showResults": "Show results",
 
   "highcare.title": "Urgent medical evaluation recommended",
@@ -148,6 +149,24 @@
   "routine.mhac.pill.free": "Free referral line",
   "routine.mhac.pill.personal": "1:1 assistance",
   "routine.mhac.pill.navigation": "Navigation support",
+
+  "mhac.title": "Not sure where to start?",
+  "mhac.body": "The Mental Health Assistance Center (MHAOK) helps you find the best next step and offers free guidance on programs and services. If you're unsure who to contact, start here.",
+
+  "resources211.title": "2-1-1 Oklahoma / Local Resource Navigation",
+  "resources211.body": "24/7, trained operators provide free referrals to public and private resources tailored to your situation. You can ask about mental health and the basics you need for daily life.",
+  "resources211.name": "2-1-1 Oklahoma",
+  "resources211.pill.247": "24/7",
+  "resources211.pill.free": "Free help",
+  "resources211.pill.lang": "Multilingual",
+  "resources211.desc": "Get guidance on community services for essentials like housing, healthcare, and financial stability.",
+  "resources211.examplesTitle": "Examples of what you can ask about:",
+  "resources211.examples1": "Basic needs: food assistance (food banks), rent or utility payment support.",
+  "resources211.examples2": "Housing: shelters and affordable housing search.",
+  "resources211.examples3": "Health & medical: insurance questions, free or low-cost clinics.",
+  "resources211.examples4": "Other: childcare support, senior services, legal help, and more.",
+  "resources211.callBtn": "Call 2-1-1",
+  "resources211.siteBtn": "Website",
 
   "reassure.title": "Cost, language, and privacy",
   "reassure.subtitle": "You are not alone. Support is available regardless of insurance status or ability to pay. Many services are free or offered on a sliding scale based on income.",
