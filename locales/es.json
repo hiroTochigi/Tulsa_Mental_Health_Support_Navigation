@@ -163,6 +163,12 @@
   "routine.chc.slide.annualPlaceholder": "Ingreso anual: Aún no calculado.",
   "routine.chc.slide.perPersonPlaceholder": "Ingreso por persona: Aún no calculado.",
   "routine.chc.slide.resultPlaceholder": "Nivel: Aún no calculado.",
+  "routine.chc.slide.levelA": "Nivel A (Tarifa nominal)",
+  "routine.chc.slide.levelB": "Nivel B",
+  "routine.chc.slide.levelC": "Nivel C (50% de descuento)",
+  "routine.chc.slide.levelD": "Nivel D",
+  "routine.chc.slide.levelE": "Nivel E",
+  "routine.chc.slide.levelF": "Nivel F (Precio completo)",
   "routine.chc.slide.note": "Esta es una estimación; el personal confirmará tu nivel final.",
 
   "routine.mhac.full": "Centro de Asistencia de Salud Mental",

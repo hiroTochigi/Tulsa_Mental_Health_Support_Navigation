@@ -166,6 +166,12 @@
   "routine.chc.slide.annualPlaceholder": "Annual income: Not calculated yet.",
   "routine.chc.slide.perPersonPlaceholder": "Income per person: Not calculated yet.",
   "routine.chc.slide.resultPlaceholder": "Slide level: Not calculated yet.",
+  "routine.chc.slide.levelA": "Slide A (Nominal Fee)",
+  "routine.chc.slide.levelB": "Slide B",
+  "routine.chc.slide.levelC": "Slide C (50% Discount)",
+  "routine.chc.slide.levelD": "Slide D",
+  "routine.chc.slide.levelE": "Slide E",
+  "routine.chc.slide.levelF": "Slide F (Full Price)",
   "routine.chc.slide.note": "This is an estimate; staff will confirm your final slide.",
 
   "routine.mhac.full": "Mental Health Assistance Center",

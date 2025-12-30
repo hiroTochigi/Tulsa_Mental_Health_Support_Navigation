@@ -111,6 +111,12 @@ class MHChcRateModal extends HTMLElement {
                 <p class="hint" data-i18n="routine.chc.slide.note">This is an estimate; staff will confirm your final slide.</p>
               </div>
             </section>
+            <div class="sr-only" data-slide-label="A" data-i18n="routine.chc.slide.levelA">Slide A (Nominal Fee)</div>
+            <div class="sr-only" data-slide-label="B" data-i18n="routine.chc.slide.levelB">Slide B</div>
+            <div class="sr-only" data-slide-label="C" data-i18n="routine.chc.slide.levelC">Slide C (50% Discount)</div>
+            <div class="sr-only" data-slide-label="D" data-i18n="routine.chc.slide.levelD">Slide D</div>
+            <div class="sr-only" data-slide-label="E" data-i18n="routine.chc.slide.levelE">Slide E</div>
+            <div class="sr-only" data-slide-label="F" data-i18n="routine.chc.slide.levelF">Slide F (Full Price)</div>
           </div>
         </div>
         <button
@@ -134,18 +140,28 @@ class MHChcRateModal extends HTMLElement {
           const slideEl = this.querySelector("[data-slide-output]");
           if (!annualEl || !perPersonEl || !slideEl) return;
 
-          const storeLabel = (el) => {
-            if (!el.dataset.label) {
-              el.dataset.label = el.textContent.trim();
+          const ensurePlaceholder = (el) => {
+            if (!el.dataset.placeholder) {
+              el.dataset.placeholder = el.textContent.trim();
             }
           };
-          storeLabel(annualEl);
-          storeLabel(perPersonEl);
-          storeLabel(slideEl);
+          ensurePlaceholder(annualEl);
+          ensurePlaceholder(perPersonEl);
+          ensurePlaceholder(slideEl);
 
           const parseMoney = (value) => {
             const cleaned = String(value || "").replace(/[^0-9.-]/g, "");
             return cleaned ? Number.parseFloat(cleaned) : Number.NaN;
+          };
+
+          const getPrefix = (text) => {
+            const parts = text.split(":");
+            return parts.length > 1 ? parts[0].trim() : text.trim();
+          };
+
+          const setWithValue = (el, valueText) => {
+            const prefix = getPrefix(el.dataset.placeholder || el.textContent);
+            el.textContent = `${prefix}: ${valueText}`;
           };
 
           const incomeInput = this.querySelector('[name="chc-income"]');
@@ -154,10 +170,10 @@ class MHChcRateModal extends HTMLElement {
           const incomeValue = incomeInput ? parseMoney(incomeInput.value) : Number.NaN;
           const householdValue = householdInput ? Number.parseInt(householdInput.value, 10) : Number.NaN;
 
-          if (!Number.isFinite(incomeValue) || !periodInput) {
-            annualEl.textContent = annualEl.dataset.label;
-            perPersonEl.textContent = perPersonEl.dataset.label;
-            slideEl.textContent = slideEl.dataset.label;
+          if (!Number.isFinite(incomeValue) || !periodInput || !Number.isFinite(householdValue) || householdValue <= 0) {
+            annualEl.textContent = annualEl.dataset.placeholder;
+            perPersonEl.textContent = perPersonEl.dataset.placeholder;
+            slideEl.textContent = slideEl.dataset.placeholder;
             return;
           }
 
@@ -174,25 +190,53 @@ class MHChcRateModal extends HTMLElement {
             currency: "USD",
             maximumFractionDigits: 0,
           }).format(annualIncome);
-          annualEl.textContent = `${annualEl.dataset.label} ${formattedAnnual}`;
+          setWithValue(annualEl, formattedAnnual);
 
-          if (Number.isFinite(householdValue) && householdValue > 0) {
-            const perPerson = annualIncome / householdValue;
-            const formattedPerPerson = new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              maximumFractionDigits: 0,
-            }).format(perPerson);
-            perPersonEl.textContent = `${perPersonEl.dataset.label} ${formattedPerPerson}`;
-          } else {
-            perPersonEl.textContent = perPersonEl.dataset.label;
-          }
+          const perPerson = annualIncome / householdValue;
+          const formattedPerPerson = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            maximumFractionDigits: 0,
+          }).format(perPerson);
+          setWithValue(perPersonEl, formattedPerPerson);
 
-          slideEl.textContent = slideEl.dataset.label;
+          const slideText = this.getSlideLevel(householdValue, annualIncome);
+          setWithValue(slideEl, slideText);
         }
       });
       this._chcHandlersBound = true;
     }
+  }
+
+  getSlideLevel(householdSize, annualIncome) {
+    const basePoverty = 15650;
+    const increment = 5500;
+    const adjustedHousehold = Math.max(1, Number.parseInt(householdSize, 10) || 1);
+    const fpg100 = basePoverty + Math.max(0, adjustedHousehold - 1) * increment;
+    const slideLabels = Array.from(this.querySelectorAll("[data-slide-label]")).reduce(
+      (acc, el) => {
+        acc[el.dataset.slideLabel] = el.textContent.trim();
+        return acc;
+      },
+      {}
+    );
+
+    if (annualIncome <= fpg100) {
+      return slideLabels.A || "Slide A (Nominal Fee)";
+    }
+    if (annualIncome <= fpg100 * 1.25) {
+      return slideLabels.B || "Slide B";
+    }
+    if (annualIncome <= fpg100 * 1.5) {
+      return slideLabels.C || "Slide C (50% Discount)";
+    }
+    if (annualIncome <= fpg100 * 1.75) {
+      return slideLabels.D || "Slide D";
+    }
+    if (annualIncome <= fpg100 * 2.0) {
+      return slideLabels.E || "Slide E";
+    }
+    return slideLabels.F || "Slide F (Full Price)";
   }
 }
 
