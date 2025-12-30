@@ -125,7 +125,19 @@ class MHRoutine extends HTMLElement {
               <a class="btn call-btn" href="tel:+19186220641" data-i18n="routine.chc.callBtn">Call 918-622-0641</a>
               <a class="btn btn-outline site-btn" href="https://communityhealthconnection.org/services/behavioral-health/" target="_blank" rel="noopener" data-i18n="routine.chc.counselingBtn">Start Counseling</a>
               <a class="btn btn-outline apply-btn" href="https://communityhealthconnection.org/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.chc.medicationBtn">Medication Support Appointment</a>
+              <button
+                class="btn btn-outline"
+                type="button"
+                data-open="#${sectionId}-chc-modal"
+                data-i18n="routine.chc.rateBtn"
+              >
+                Check My Rate
+              </button>
             </div>
+            <mh-chc-rate-modal
+              modal-id="${sectionId}-chc-modal"
+              section-id="${sectionId}"
+            ></mh-chc-rate-modal>
           </article>
         </div>
 
