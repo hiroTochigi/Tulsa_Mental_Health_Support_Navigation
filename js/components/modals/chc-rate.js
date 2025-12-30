@@ -19,19 +19,40 @@ class MHChcRateModal extends HTMLElement {
         #${modalId} .doc-list { display: grid; gap: 10px; }
         #${modalId} .doc-item { border: 1px solid var(--border, #223049); border-radius: 10px; padding: 10px; }
         #${modalId} .doc-item label { display: flex; align-items: center; gap: 8px; font-weight: 600; }
-        #${modalId} .paystub-calc { margin-top: 10px; display: none; gap: 8px; }
-        #${modalId} .doc-item--paystubs .doc-toggle:checked ~ .paystub-calc { display: grid; }
-        #${modalId} .calc-row { display: grid; gap: 8px; }
-        #${modalId} .calc-row button { justify-self: start; }
-        #${modalId} .calc-result { font-weight: 700; }
         #${modalId} .slide-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-        #${modalId} .slide-output { margin: 6px 0 0 0; font-weight: 600; }
+        #${modalId} .slide-results { display: grid; gap: 6px; margin-top: 10px; }
+        #${modalId} .slide-output { margin: 0; font-weight: 600; }
       </style>
       <mh-modal id="${modalId}">
         <h4 slot="heading" data-i18n="routine.chc.modalHeading">Check My Rate</h4>
         <div slot="body">
           <div class="chc-modal">
             <p class="hint" data-i18n="routine.chc.modalIntro">Answer a few quick questions to estimate your sliding-fee level. A CHC team member will confirm details with you.</p>
+
+            <section>
+              <h5 data-i18n="routine.chc.docs.title">Document helper checklist</h5>
+              <p class="hint" data-i18n="routine.chc.docs.subtitle">Check what you have on hand:</p>
+              <div class="doc-list">
+                <div class="doc-item doc-item--paystubs">
+                  <label>
+                    <input class="doc-toggle" type="radio" name="chc-docs" />
+                    <span data-i18n="routine.chc.docs.paystubs">Last 2 Paystubs</span>
+                  </label>
+                </div>
+                <div class="doc-item">
+                  <label>
+                    <input type="radio" name="chc-docs" />
+                    <span data-i18n="routine.chc.docs.foodstamp">Food Stamp Letter</span>
+                  </label>
+                </div>
+                <div class="doc-item">
+                  <label>
+                    <input type="radio" name="chc-docs" />
+                    <span data-i18n="routine.chc.docs.w2">W-2</span>
+                  </label>
+                </div>
+              </div>
+            </section>
 
             <ol class="wizard">
               <li class="wizard-step">
@@ -76,75 +97,17 @@ class MHChcRateModal extends HTMLElement {
             </ol>
 
             <section>
-              <h5 data-i18n="routine.chc.docs.title">Document helper checklist</h5>
-              <p class="hint" data-i18n="routine.chc.docs.subtitle">Check what you have on hand:</p>
-              <div class="doc-list">
-                <div class="doc-item doc-item--paystubs">
-                  <label>
-                    <input class="doc-toggle" type="radio" name="chc-docs" />
-                    <span data-i18n="routine.chc.docs.paystubs">Last 2 Paystubs</span>
-                  </label>
-                  <div class="paystub-calc">
-                    <h5 data-i18n="routine.chc.docs.paystubHelper">Paystub helper</h5>
-                    <div class="field">
-                      <label for="${sectionId}-paystub-1" data-i18n="routine.chc.docs.paystubAmount1">Paystub 1 amount</label>
-                      <input id="${sectionId}-paystub-1" type="text" inputmode="decimal" data-paystub-amount placeholder="$0.00" />
-                    </div>
-                    <div class="field">
-                      <label for="${sectionId}-paystub-2" data-i18n="routine.chc.docs.paystubAmount2">Paystub 2 amount</label>
-                      <input id="${sectionId}-paystub-2" type="text" inputmode="decimal" data-paystub-amount placeholder="$0.00" />
-                    </div>
-                    <div class="field">
-                      <label data-i18n="routine.chc.docs.paystubFrequency">Paystub frequency</label>
-                      <div class="period-options">
-                        <label>
-                          <input type="radio" name="chc-paystub-frequency" value="weekly" checked />
-                          <span data-i18n="routine.chc.docs.paystubWeekly">Weekly (x52)</span>
-                        </label>
-                        <label>
-                          <input type="radio" name="chc-paystub-frequency" value="biweekly" />
-                          <span data-i18n="routine.chc.docs.paystubBiweekly">Bi-weekly (x26)</span>
-                        </label>
-                      </div>
-                    </div>
-                    <div class="calc-row">
-                      <button class="btn btn-outline" type="button" data-paystub-calc data-i18n="routine.chc.docs.paystubCalcBtn">Estimate annual income</button>
-                      <div class="calc-result" aria-live="polite" data-paystub-result data-i18n="routine.chc.docs.paystubResult">Estimated annual income:</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="doc-item">
-                  <label>
-                    <input type="radio" name="chc-docs" />
-                    <span data-i18n="routine.chc.docs.foodstamp">Food Stamp Letter</span>
-                  </label>
-                </div>
-                <div class="doc-item">
-                  <label>
-                    <input type="radio" name="chc-docs" />
-                    <span data-i18n="routine.chc.docs.w2">W-2</span>
-                  </label>
-                </div>
-              </div>
-            </section>
-
-            <section>
               <h5 data-i18n="routine.chc.slide.title">Slide level estimate</h5>
               <div class="field">
-                <label for="${sectionId}-slide-select" data-i18n="routine.chc.slide.label">Select a slide to display</label>
+                <label data-i18n="routine.chc.slide.label">Estimate your slide level</label>
                 <div class="slide-row">
-                  <select id="${sectionId}-slide-select" data-slide-select>
-                    <option value="" data-i18n="routine.chc.slide.selectPlaceholder">Choose a slide</option>
-                    <option value="A" data-i18n="routine.chc.slide.optionA">Slide A</option>
-                    <option value="B" data-i18n="routine.chc.slide.optionB">Slide B</option>
-                    <option value="C" data-i18n="routine.chc.slide.optionC">Slide C</option>
-                    <option value="D" data-i18n="routine.chc.slide.optionD">Slide D</option>
-                    <option value="E" data-i18n="routine.chc.slide.optionE">Slide E</option>
-                    <option value="F" data-i18n="routine.chc.slide.optionF">Slide F</option>
-                  </select>
                   <button class="btn btn-outline" type="button" data-slide-calc data-i18n="routine.chc.slide.calcBtn">Show slide level</button>
                 </div>
-                <p class="slide-output" aria-live="polite" data-slide-output data-i18n="routine.chc.slide.resultPlaceholder">Slide level: Not calculated yet.</p>
+                <div class="slide-results" aria-live="polite">
+                  <p class="slide-output" data-annual-output data-i18n="routine.chc.slide.annualPlaceholder">Annual income: Not calculated yet.</p>
+                  <p class="slide-output" data-perperson-output data-i18n="routine.chc.slide.perPersonPlaceholder">Income per person: Not calculated yet.</p>
+                  <p class="slide-output" data-slide-output data-i18n="routine.chc.slide.resultPlaceholder">Slide level: Not calculated yet.</p>
+                </div>
                 <p class="hint" data-i18n="routine.chc.slide.note">This is an estimate; staff will confirm your final slide.</p>
               </div>
             </section>
@@ -164,61 +127,68 @@ class MHChcRateModal extends HTMLElement {
 
     if (!this._chcHandlersBound) {
       this.addEventListener("click", (event) => {
-        const paystubButton = event.target.closest("[data-paystub-calc]");
-        if (paystubButton) {
-          const amountInputs = Array.from(this.querySelectorAll("[data-paystub-amount]"));
-          const resultEl = this.querySelector("[data-paystub-result]");
-          if (!amountInputs.length || !resultEl) return;
+        const slideButton = event.target.closest("[data-slide-calc]");
+        if (slideButton) {
+          const annualEl = this.querySelector("[data-annual-output]");
+          const perPersonEl = this.querySelector("[data-perperson-output]");
+          const slideEl = this.querySelector("[data-slide-output]");
+          if (!annualEl || !perPersonEl || !slideEl) return;
 
-          if (!resultEl.dataset.label) {
-            resultEl.dataset.label = resultEl.textContent.trim();
-          }
+          const storeLabel = (el) => {
+            if (!el.dataset.label) {
+              el.dataset.label = el.textContent.trim();
+            }
+          };
+          storeLabel(annualEl);
+          storeLabel(perPersonEl);
+          storeLabel(slideEl);
 
           const parseMoney = (value) => {
             const cleaned = String(value || "").replace(/[^0-9.-]/g, "");
             return cleaned ? Number.parseFloat(cleaned) : Number.NaN;
           };
 
-          const amounts = amountInputs.map((input) => parseMoney(input.value));
-          const valid = amounts.filter((value) => Number.isFinite(value));
-          if (!valid.length) {
-            resultEl.textContent = resultEl.dataset.label;
+          const incomeInput = this.querySelector('[name="chc-income"]');
+          const periodInput = this.querySelector('input[name="chc-income-period"]:checked');
+          const householdInput = this.querySelector('[name="chc-household"]');
+          const incomeValue = incomeInput ? parseMoney(incomeInput.value) : Number.NaN;
+          const householdValue = householdInput ? Number.parseInt(householdInput.value, 10) : Number.NaN;
+
+          if (!Number.isFinite(incomeValue) || !periodInput) {
+            annualEl.textContent = annualEl.dataset.label;
+            perPersonEl.textContent = perPersonEl.dataset.label;
+            slideEl.textContent = slideEl.dataset.label;
             return;
           }
 
-          const average = valid.reduce((sum, value) => sum + value, 0) / valid.length;
-          const frequency = this.querySelector('input[name="chc-paystub-frequency"]:checked');
-          const multiplier = frequency && frequency.value === "biweekly" ? 26 : 52;
-          const annual = average * multiplier;
-          const formatted = new Intl.NumberFormat("en-US", {
+          const multiplierByPeriod = {
+            yearly: 1,
+            monthly: 12,
+            biweekly: 26,
+            weekly: 52,
+          };
+          const multiplier = multiplierByPeriod[periodInput.value] || 1;
+          const annualIncome = incomeValue * multiplier;
+          const formattedAnnual = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
             maximumFractionDigits: 0,
-          }).format(annual);
-          resultEl.textContent = `${resultEl.dataset.label} ${formatted}`;
-          return;
-        }
+          }).format(annualIncome);
+          annualEl.textContent = `${annualEl.dataset.label} ${formattedAnnual}`;
 
-        const slideButton = event.target.closest("[data-slide-calc]");
-        if (slideButton) {
-          const selectEl = this.querySelector("[data-slide-select]");
-          const outputEl = this.querySelector("[data-slide-output]");
-          if (!selectEl || !outputEl) return;
-
-          if (!outputEl.dataset.placeholder) {
-            outputEl.dataset.placeholder = outputEl.textContent.trim();
+          if (Number.isFinite(householdValue) && householdValue > 0) {
+            const perPerson = annualIncome / householdValue;
+            const formattedPerPerson = new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+              maximumFractionDigits: 0,
+            }).format(perPerson);
+            perPersonEl.textContent = `${perPersonEl.dataset.label} ${formattedPerPerson}`;
+          } else {
+            perPersonEl.textContent = perPersonEl.dataset.label;
           }
 
-          const selectedOption = selectEl.options[selectEl.selectedIndex];
-          if (!selectEl.value || !selectedOption) {
-            outputEl.textContent = outputEl.dataset.placeholder;
-            return;
-          }
-
-          const optionText = selectedOption.textContent.trim();
-          const placeholder = outputEl.dataset.placeholder || "";
-          const prefix = placeholder.includes(":") ? placeholder.split(":")[0] : "";
-          outputEl.textContent = prefix ? `${prefix}: ${optionText}` : optionText;
+          slideEl.textContent = slideEl.dataset.label;
         }
       });
       this._chcHandlersBound = true;
