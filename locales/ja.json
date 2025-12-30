@@ -163,6 +163,12 @@
   "routine.chc.slide.annualPlaceholder": "年収: まだ計算されていません。",
   "routine.chc.slide.perPersonPlaceholder": "一人あたりの収入: まだ計算されていません。",
   "routine.chc.slide.resultPlaceholder": "区分: まだ計算されていません。",
+  "routine.chc.slide.levelA": "スライドA（名目料金）",
+  "routine.chc.slide.levelB": "スライドB",
+  "routine.chc.slide.levelC": "スライドC（50%割引）",
+  "routine.chc.slide.levelD": "スライドD",
+  "routine.chc.slide.levelE": "スライドE",
+  "routine.chc.slide.levelF": "スライドF（通常料金）",
   "routine.chc.slide.note": "これは目安です。最終的な区分はスタッフが確認します。",
 
   "routine.mhac.full": "メンタルヘルス・アシスタンス・センター",
