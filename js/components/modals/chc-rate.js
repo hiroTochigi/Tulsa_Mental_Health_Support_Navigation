@@ -128,6 +128,16 @@ class MHChcRateModal extends HTMLElement {
         >
           Close
         </button>
+        <a
+          slot="actions"
+          class="btn btn-outline"
+          href="https://communityhealthconnection.org/wp-content/uploads/2021/09/HB1006_Pricing.pdf"
+          target="_blank"
+          rel="noopener"
+          data-i18n="routine.chc.pricingBtn"
+        >
+          View Pricing PDF
+        </a>
       </mh-modal>
     `;
 
