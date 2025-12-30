@@ -244,13 +244,29 @@ class MHEmergency extends HTMLElement {
               What is COPES?
             </button>
           </div>
-          <mh-modal
-            id="${sectionId}-copes-modal"
-            data-heading-i18n="emergency.copesWhatIsHeading"
-            data-body-i18n="emergency.copesWhatIsBody"
-            data-list-i18n="emergency.copesWhatIsList1,emergency.copesWhatIsList2,emergency.copesWhatIsList3,emergency.copesWhatIsList4"
-            data-close-i18n="close"
-          ></mh-modal>
+          <mh-modal id="${sectionId}-copes-modal">
+            <h4 slot="heading" data-i18n="emergency.copesWhatIsHeading">
+              About
+            </h4>
+            <div slot="body">
+              <div data-i18n="emergency.copesWhatIsBody"></div>
+              <ul>
+                <li data-i18n="emergency.copesWhatIsList1"></li>
+                <li data-i18n="emergency.copesWhatIsList2"></li>
+                <li data-i18n="emergency.copesWhatIsList3"></li>
+                <li data-i18n="emergency.copesWhatIsList4"></li>
+              </ul>
+            </div>
+            <button
+              slot="actions"
+              type="button"
+              class="btn btn-link"
+              data-i18n="close"
+              data-modal-close
+            >
+              Close
+            </button>
+          </mh-modal>
         </article>
 
         <p class="footer" data-i18n="emergency.footer"></p>

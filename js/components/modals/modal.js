@@ -3,6 +3,29 @@ class MHModal extends HTMLElement {
     if (this.__inited) return;
     this.__inited = true;
 
+    const slotBuckets = { heading: [], body: [], actions: [], fallback: [] };
+    const initialNodes = Array.from(this.childNodes);
+    initialNodes.forEach((node) => {
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        const slotName = node.getAttribute("slot");
+        if (slotName === "heading") {
+          slotBuckets.heading.push(node);
+        } else if (slotName === "body") {
+          slotBuckets.body.push(node);
+        } else if (slotName === "actions") {
+          slotBuckets.actions.push(node);
+        } else {
+          slotBuckets.fallback.push(node);
+        }
+      } else if (
+        node.nodeType === Node.TEXT_NODE &&
+        node.textContent &&
+        node.textContent.trim()
+      ) {
+        slotBuckets.fallback.push(node);
+      }
+    });
+
     // Ensure minimal styles once
     const STYLE_ID = "mh-modal-styles";
     if (!document.getElementById(STYLE_ID)) {
@@ -18,32 +41,15 @@ class MHModal extends HTMLElement {
       document.head.appendChild(style);
     }
 
-    const headingKey = this.getAttribute("data-heading-i18n") || "";
-    const bodyKey = this.getAttribute("data-body-i18n") || "";
-    const listKeys = (this.getAttribute("data-list-i18n") || "")
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean);
-    const closeKey = this.getAttribute("data-close-i18n") || "close";
-
-    const titleId = `${this.id || Math.random().toString(36).slice(2)}-title`;
+    this._titleIdBase = this.id || Math.random().toString(36).slice(2);
 
     this.innerHTML = `
       <div class="mh-modal-backdrop" aria-hidden="true">
-        <div class="mh-modal" role="dialog" aria-modal="true" aria-labelledby="${titleId}">
+        <div class="mh-modal" role="dialog" aria-modal="true" tabindex="-1">
           <div class="content">
-            <h4 id="${titleId}" tabindex="-1" data-i18n="${headingKey}">About</h4>
+            <div class="mh-modal-heading"></div>
             <div class="info-panel-body">
-              ${bodyKey ? `<div data-i18n="${bodyKey}"></div>` : ""}
-              ${
-                listKeys.length
-                  ? `<ul>${listKeys
-                      .map((k) => `<li data-i18n="${k}"></li>`)
-                      .join("")}</ul>`
-                  : ""
-              }
               <div class="mh-modal-actions">
-                <button type="button" class="btn btn-link" data-i18n="${closeKey}">Close</button>
               </div>
             </div>
           </div>
@@ -53,8 +59,28 @@ class MHModal extends HTMLElement {
 
     this._backdrop = this.querySelector(".mh-modal-backdrop");
     this._dialog = this.querySelector(".mh-modal");
-    this._heading = this.querySelector(`#${titleId}`);
-    this._closeBtn = this.querySelector(".mh-modal-actions .btn");
+    this._headingContainer = this.querySelector(".mh-modal-heading");
+    this._bodyContainer = this.querySelector(".info-panel-body");
+    this._actionsContainer = this.querySelector(".mh-modal-actions");
+
+    if (this._headingContainer) {
+      slotBuckets.heading.forEach((node) =>
+        this._headingContainer.appendChild(node)
+      );
+    }
+    if (this._bodyContainer) {
+      slotBuckets.body.forEach((node) =>
+        this._bodyContainer.insertBefore(node, this._actionsContainer)
+      );
+      slotBuckets.fallback.forEach((node) =>
+        this._bodyContainer.insertBefore(node, this._actionsContainer)
+      );
+    }
+    if (this._actionsContainer) {
+      slotBuckets.actions.forEach((node) =>
+        this._actionsContainer.appendChild(node)
+      );
+    }
 
     // Events
     this._onKeyDown = (e) => {
@@ -72,12 +98,19 @@ class MHModal extends HTMLElement {
         this.close();
       }
     };
-    if (this._closeBtn) {
-      this._closeBtn.addEventListener("click", () => this.close());
-    }
+    this._onClick = (e) => {
+      const closeTrigger =
+        e.target && e.target.closest && e.target.closest("[data-modal-close]");
+      if (closeTrigger && this.contains(closeTrigger)) {
+        e.preventDefault();
+        this.close();
+      }
+    };
     if (this._backdrop) {
       this._backdrop.addEventListener("click", this._onBackdropClick);
     }
+    this.addEventListener("click", this._onClick);
+    this._syncHeading();
   }
 
   open() {
@@ -85,7 +118,11 @@ class MHModal extends HTMLElement {
     if (this._backdrop) this._backdrop.setAttribute("aria-hidden", "false");
     document.addEventListener("keydown", this._onKeyDown, true);
     queueMicrotask(() => {
-      if (this._heading) this._heading.focus();
+      if (this._heading) {
+        this._heading.focus();
+      } else if (this._dialog) {
+        this._dialog.focus();
+      }
     });
     this.dispatchEvent(new CustomEvent("mh-modal:open", { bubbles: true }));
   }
@@ -100,6 +137,24 @@ class MHModal extends HTMLElement {
       this._previouslyFocused.focus();
     }
     this.dispatchEvent(new CustomEvent("mh-modal:close", { bubbles: true }));
+  }
+
+  _syncHeading() {
+    if (!this._headingContainer || !this._dialog) return;
+    const headingEl = this._headingContainer.firstElementChild || null;
+    if (headingEl) {
+      if (!headingEl.id) {
+        headingEl.id = `${this._titleIdBase}-title`;
+      }
+      if (!headingEl.hasAttribute("tabindex")) {
+        headingEl.setAttribute("tabindex", "-1");
+      }
+      this._dialog.setAttribute("aria-labelledby", headingEl.id);
+      this._heading = headingEl;
+    } else {
+      this._dialog.removeAttribute("aria-labelledby");
+      this._heading = null;
+    }
   }
 
   _trapFocus(e) {

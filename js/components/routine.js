@@ -62,12 +62,21 @@ class MHRoutine extends HTMLElement {
                 About CRSOK
               </button>
             </div>
-            <mh-modal
-              id="${sectionId}-crs-modal"
-              data-heading-i18n="routine.crs.modalHeading"
-              data-body-i18n="routine.crs.modalBody"
-              data-close-i18n="close"
-            ></mh-modal>
+            <mh-modal id="${sectionId}-crs-modal">
+              <h4 slot="heading" data-i18n="routine.crs.modalHeading">About</h4>
+              <div slot="body">
+                <div data-i18n="routine.crs.modalBody"></div>
+              </div>
+              <button
+                slot="actions"
+                type="button"
+                class="btn btn-link"
+                data-i18n="close"
+                data-modal-close
+              >
+                Close
+              </button>
+            </mh-modal>
           </article>
 
           <!-- FCS -->
