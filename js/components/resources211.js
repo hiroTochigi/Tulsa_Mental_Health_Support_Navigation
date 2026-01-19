@@ -15,11 +15,9 @@ class MHResources211 extends HTMLElement {
     this.innerHTML = `
       <section id="${sectionId}" class="step hidden" aria-labelledby="${sectionId}-title">
         <style>
-          #${sectionId} .card { padding: 16px; border-radius: 12px; border: 1px solid var(--border, #223049); box-shadow: 0 1px 4px rgba(0,0,0,.12); margin-block: 24px; background: transparent; }
           #${sectionId} .card header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
           #${sectionId} .card header .left { display: flex; align-items: center; gap: 10px; }
           #${sectionId} .explainer { margin: 0 0 12px 0; }
-          #${sectionId} .actions { display: flex; gap: 12px; flex-wrap: wrap; }
           #${sectionId} .actions > .btn { flex: 1 1 100%; }
           @media (min-width: 640px) { #${sectionId} .actions > .btn { flex: 0 0 auto; } }
           #${sectionId} .card--211 { border-color: #0f766e; }
