@@ -134,15 +134,6 @@
               </span>
             </label>
           </div>
-          <div class="btn-row">
-            <button
-              class="btn btn-success"
-              id="evaluate"
-              data-i18n="D.showResults"
-            >
-              結果を表示
-            </button>
-          </div>
         </section>
 
         <mh-emergency id="emergency"></mh-emergency>
@@ -399,7 +390,9 @@
         });
 
         // Step D の判定
-        $("#evaluate").addEventListener("click", evaluateNeeds);
+        $$("#stepD input[name='stepD-reason']").forEach((radio) => {
+          radio.addEventListener("change", evaluateNeeds);
+        });
 
         // キーボードショートカット（「/」「?」で StepA に戻る）
         document.addEventListener("keydown", (e) => {
