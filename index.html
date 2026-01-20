@@ -358,6 +358,9 @@
         }
 
         const needsHighCare = selected === "detox" || selected === "psychosis";
+        const routineFocus =
+          selected === "therapy" ? "therapy" : selected === "meds" ? "meds" : "all";
+        document.querySelector("mh-routine")?.setAttribute("focus", routineFocus);
         showSection(needsHighCare ? SECTIONS.HIGHCARE : SECTIONS.ROUTINE);
       }
 

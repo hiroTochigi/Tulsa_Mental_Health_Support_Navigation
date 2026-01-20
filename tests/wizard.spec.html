@@ -70,6 +70,13 @@
       function $all(sel, root) { return Array.from((root || inFrame().document).querySelectorAll(sel)); }
       function isHidden(el) { return !el || el.classList.contains('hidden'); }
       function isVisible(el) { return !!el && !el.classList.contains('hidden'); }
+      function isDisplayed(el) {
+        if (!el) return false;
+        const doc = inFrame().document;
+        if (!doc.documentElement.contains(el)) return false;
+        const style = inFrame().getComputedStyle(el);
+        return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
+      }
 
       async function resetToStart() {
         // Use any visible reset button, else reload the iframe
@@ -161,7 +168,6 @@
 
           // D: Highcare via detox/psychosis
           $('#stepD input[value="detox"]').click();
-          document.getElementById('app').contentWindow.document.getElementById('evaluate').click();
           await delay(50);
           assert(isVisible($('#highcare')), 'D: Highcare visible when detox selected');
           assert(isHidden($('#routine')), 'D: Routine hidden when detox selected');
@@ -175,10 +181,31 @@
           $('#stepC [data-next="stepD"]').click();
           await delay(50);
           $('#stepD input[value="therapy"]').click();
-          document.getElementById('app').contentWindow.document.getElementById('evaluate').click();
           await delay(50);
           assert(isVisible($('#routine')), 'D: Routine visible when therapy selected');
           assert(isHidden($('#highcare')), 'D: Highcare hidden when therapy selected');
+          assert($('#routine')?.getAttribute('data-focus') === 'therapy', 'D: Routine focus set to therapy');
+          assert(isDisplayed($('#routine [data-i18n="routine.fcs.siteBtn"]')), 'D: Therapy shows FCS counseling button');
+          assert(!isDisplayed($('#routine [data-i18n="routine.fcs.applyBtn"]')), 'D: Therapy hides FCS medication button');
+          assert(isDisplayed($('#routine [data-i18n="routine.chc.counselingBtn"]')), 'D: Therapy shows CHC counseling button');
+          assert(!isDisplayed($('#routine [data-i18n="routine.chc.medicationBtn"]')), 'D: Therapy hides CHC medication button');
+
+          // D: Routine (medication focus)
+          await resetToStart();
+          $('[data-next="stepB"]').click();
+          await delay(50);
+          $('#stepB [data-next="stepC"]').click();
+          await delay(50);
+          $('#stepC [data-next="stepD"]').click();
+          await delay(50);
+          $('#stepD input[value="meds"]').click();
+          await delay(50);
+          assert(isVisible($('#routine')), 'D: Routine visible when meds selected');
+          assert($('#routine')?.getAttribute('data-focus') === 'meds', 'D: Routine focus set to meds');
+          assert(!isDisplayed($('#routine [data-i18n="routine.fcs.siteBtn"]')), 'D: Meds hides FCS counseling button');
+          assert(isDisplayed($('#routine [data-i18n="routine.fcs.applyBtn"]')), 'D: Meds shows FCS medication button');
+          assert(!isDisplayed($('#routine [data-i18n="routine.chc.counselingBtn"]')), 'D: Meds hides CHC counseling button');
+          assert(isDisplayed($('#routine [data-i18n="routine.chc.medicationBtn"]')), 'D: Meds shows CHC medication button');
 
           // Reset returns to A
           await resetToStart();

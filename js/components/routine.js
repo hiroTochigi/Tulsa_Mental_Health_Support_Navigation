@@ -1,7 +1,28 @@
 class MHRoutine extends HTMLElement {
+  static get observedAttributes() {
+    // Re-render is expensive; we only need to react to changes that affect filtering.
+    // When `focus` changes, we update the rendered section's `data-focus` attribute.
+    return ["focus"];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name !== "focus" || oldValue === newValue) return;
+    if (!this.isConnected) return;
+    const sectionId = this._sectionId || this.getAttribute("data-section-id");
+    if (!sectionId) return;
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    // `data-focus` drives the CSS-only filtering of titles/body text/CTAs.
+    section.setAttribute("data-focus", this.getAttribute("focus") || "all");
+  }
+
   connectedCallback() {
     const passedId = this.getAttribute("section-id") || this.getAttribute("id");
     const sectionId = passedId && passedId.trim() ? passedId.trim() : "routine";
+    // Cache the section id so attributeChangedCallback can find the right DOM node.
+    this._sectionId = sectionId;
+    // Initial filter mode: "therapy" | "meds" | "all" (fallback).
+    const focus = (this.getAttribute("focus") || "all").trim() || "all";
 
     // Ensure agency styles are present
     if (!document.querySelector('link[href="css/components/agency.css"]')) {
@@ -11,8 +32,17 @@ class MHRoutine extends HTMLElement {
       document.head.appendChild(link);
     }
 
+    /* Focus-based filtering (CSS only)
+     *
+     * We mark elements with `data-mode="therapy"`, `data-mode="meds"`, or `data-mode="all"`.
+     * Then we set `data-focus` on the section (via the component's `focus` attribute).
+     * These rules make only the relevant bits visible:
+     * - For text spans: use `display: inline`
+     * - For buttons/links inside `.actions`: use `display: inline-flex`
+     */
+
     this.innerHTML = `
-      <section id="${sectionId}" class="result" role="region" aria-labelledby="${sectionId}-title">
+      <section id="${sectionId}" class="result" data-focus="${focus}" role="region" aria-labelledby="${sectionId}-title">
         <style>
           #${sectionId} .agency-list { display: block; }
           #${sectionId} .card header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
@@ -21,14 +51,34 @@ class MHRoutine extends HTMLElement {
           #${sectionId} .explainer { margin: 0 0 12px 0; }
           #${sectionId} .actions > .btn { flex: 1 1 100%; }
           @media (min-width: 640px) { #${sectionId} .actions > .btn { flex: 0 0 auto; } }
+          #${sectionId} [data-mode] { display: none; }
+          #${sectionId}[data-focus="therapy"] [data-mode="all"],
+          #${sectionId}[data-focus="therapy"] [data-mode="therapy"] { display: inline; }
+          #${sectionId}[data-focus="meds"] [data-mode="all"],
+          #${sectionId}[data-focus="meds"] [data-mode="meds"] { display: inline; }
+          #${sectionId}[data-focus="all"] [data-mode="all"] { display: inline; }
+          #${sectionId} .actions [data-mode] { display: none; }
+          #${sectionId}[data-focus="therapy"] .actions [data-mode="all"],
+          #${sectionId}[data-focus="therapy"] .actions [data-mode="therapy"] { display: inline-flex; }
+          #${sectionId}[data-focus="meds"] .actions [data-mode="all"],
+          #${sectionId}[data-focus="meds"] .actions [data-mode="meds"] { display: inline-flex; }
+          #${sectionId}[data-focus="all"] .actions [data-mode="all"] { display: inline-flex; }
           /* optional light accents */
           #${sectionId} .card--crs { border-color: #2b6cb0; }
           #${sectionId} .card--fcs { border-color: #9b2c2c; }
           #${sectionId} .card--chc { border-color: #2f855a; }
         </style>
-        <h3 id="${sectionId}-title" data-i18n="routine.title">Connection to routine outpatient services (Adults)</h3>
+        <h3 id="${sectionId}-title">
+          <span data-mode="all" data-i18n="routine.title">Connection to routine outpatient services (Adults)</span>
+          <span data-mode="therapy" data-i18n="routine.title.therapy">Counseling & therapy options (Adults)</span>
+          <span data-mode="meds" data-i18n="routine.title.meds">Medication support options (Adults)</span>
+        </h3>
 
-        <p data-i18n="routine.body">The following agencies provide routine outpatient care such as counseling, medication management, and SUD support.</p>
+        <p>
+          <span data-mode="all" data-i18n="routine.body">The following agencies provide routine outpatient care such as counseling, medication management, and SUD support.</span>
+          <span data-mode="therapy" data-i18n="routine.body.therapy">The following agencies can help you start counseling or therapy. Call and ask about your first appointment and costs.</span>
+          <span data-mode="meds" data-i18n="routine.body.meds">The following agencies can help with medication evaluation, prescriptions, and ongoing medication management. Call and ask about intake and costs.</span>
+        </p>
 
         <div class="agency-list">
           <!-- CRS -->
@@ -48,12 +98,13 @@ class MHRoutine extends HTMLElement {
             </header>
             <p class="explainer" data-i18n="routine.crs.desc">Nonprofit based in Tulsa, OK. Provides mental health care, counseling, substance use treatment, and crisis response services.</p>
             <div class="actions">
-              <a class="btn call-btn" href="tel:+19184922554" data-i18n="routine.crs.callBtn">Call 918-492-2554</a>
-              <a class="btn btn-outline site-btn" href="https://crsok.org/adult-services/" target="_blank" rel="noopener" data-i18n="routine.siteBtn">Website</a>
-              <a class="btn btn-outline apply-btn" href="https://crsok.org/contact-us/" target="_blank" rel="noopener" data-i18n="routine.applyBtn">Get in Touch</a>
+              <a class="btn call-btn" data-mode="all" href="tel:+19184922554" data-i18n="routine.crs.callBtn">Call 918-492-2554</a>
+              <a class="btn btn-outline site-btn" data-mode="all" href="https://crsok.org/adult-services/" target="_blank" rel="noopener" data-i18n="routine.siteBtn">Website</a>
+              <a class="btn btn-outline apply-btn" data-mode="all" href="https://crsok.org/contact-us/" target="_blank" rel="noopener" data-i18n="routine.applyBtn">Get in Touch</a>
               <button
                 class="btn btn-outline"
                 type="button"
+                data-mode="all"
                 data-open="#${sectionId}-crs-modal"
                 data-i18n="routine.crs.moreBtn"
               >
@@ -95,9 +146,9 @@ class MHRoutine extends HTMLElement {
             </header>
             <p class="explainer" data-i18n="routine.fcs.desc">Comprehensive behavioral-health services for adults, youth and families in the Tulsa area, including outpatient counseling, medication management, integrated healthcare and crisis stabilization.</p>
             <div class="actions">
-              <a class="btn call-btn" href="tel:+19185879471" data-i18n="routine.fcs.callBtn">Call 918-587-9471</a>
-              <a class="btn btn-outline site-btn" href="https://www.fcsok.org/services/adult-and-family-counseling/" target="_blank" rel="noopener" data-i18n="routine.fcs.siteBtn">Start Counselling & Therapy</a>
-              <a class="btn btn-outline apply-btn" href="https://www.fcsok.org/services/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.fcs.applyBtn">Get Medication Help & Management</a>
+              <a class="btn call-btn" data-mode="all" href="tel:+19185879471" data-i18n="routine.fcs.callBtn">Call 918-587-9471</a>
+              <a class="btn btn-outline site-btn" data-mode="therapy" href="https://www.fcsok.org/services/adult-and-family-counseling/" target="_blank" rel="noopener" data-i18n="routine.fcs.siteBtn">Start Counselling & Therapy</a>
+              <a class="btn btn-outline apply-btn" data-mode="meds" href="https://www.fcsok.org/services/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.fcs.applyBtn">Get Medication Help & Management</a>
             </div>
           </article>
 
@@ -120,12 +171,13 @@ class MHRoutine extends HTMLElement {
             </header>
             <p class="explainer" data-i18n="routine.chc.desc">Adult-friendly Federally Qualified Health Center (FQHC) in northeast Oklahoma offering primary care, dental, behavioral-health counseling and medication services (via on-site pharmacy), with sliding-fee option for uninsured.</p>
             <div class="actions">
-              <a class="btn call-btn" href="tel:+19186220641" data-i18n="routine.chc.callBtn">Call 918-622-0641</a>
-              <a class="btn btn-outline site-btn" href="https://communityhealthconnection.org/services/behavioral-health/" target="_blank" rel="noopener" data-i18n="routine.chc.counselingBtn">Start Counseling</a>
-              <a class="btn btn-outline apply-btn" href="https://communityhealthconnection.org/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.chc.medicationBtn">Medication Support Appointment</a>
+              <a class="btn call-btn" data-mode="all" href="tel:+19186220641" data-i18n="routine.chc.callBtn">Call 918-622-0641</a>
+              <a class="btn btn-outline site-btn" data-mode="therapy" href="https://communityhealthconnection.org/services/behavioral-health/" target="_blank" rel="noopener" data-i18n="routine.chc.counselingBtn">Start Counseling</a>
+              <a class="btn btn-outline apply-btn" data-mode="meds" href="https://communityhealthconnection.org/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.chc.medicationBtn">Medication Support Appointment</a>
               <button
                 class="btn btn-outline"
                 type="button"
+                data-mode="all"
                 data-open="#${sectionId}-chc-modal"
                 data-i18n="routine.chc.rateBtn"
               >

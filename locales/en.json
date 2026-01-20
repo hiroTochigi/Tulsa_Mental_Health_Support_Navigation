@@ -111,6 +111,10 @@
 
   "routine.title": "Connection to routine outpatient services (Adults)",
   "routine.body": "The following agencies provide routine outpatient care such as counseling, medication management, and SUD support.",
+  "routine.title.therapy": "Counseling & therapy options (Adults)",
+  "routine.body.therapy": "The following agencies can help you start counseling or therapy. Call and ask about your first appointment and costs.",
+  "routine.title.meds": "Medication support options (Adults)",
+  "routine.body.meds": "The following agencies can help with medication evaluation, prescriptions, and ongoing medication management. Call and ask about intake and costs.",
   "routine.callBtn": "Call",
   "routine.crs.callBtn": "Call 918-492-2554",
   "routine.fcs.callBtn": "Call 918-587-9471",
