@@ -2,7 +2,6 @@
   "title": "Ciudad de Tulsa – Guía de Apoyo de Salud Mental",
   "meta.title": "Ciudad de Tulsa – Guía de Apoyo de Salud Mental (MVP)",
   "subtitle": "Esta herramienta es una guía para conectarle con el apoyo que se ajuste a sus necesidades. Por favor responda algunas preguntas (no se guarda información personal).",
-
   "banner.label": "Banner de contactos de emergencia",
   "banner.urgent": "Urgente:",
   "banner.emergencyHtml": "Si esto es una <mark>emergencia médica</mark> o hay un peligro inminente para usted u otras personas, llame al <span class=\"phone\">911</span>. Si está en una crisis de salud mental:",
@@ -17,11 +16,9 @@
   "banner.moreShow": "Mostrar 988",
   "banner.moreHide": "Cerrar",
   "banner.note": "24/7 · Gratis · Confidencial",
-
   "A.question": "A. ¿Alguien está en peligro inmediato o es una emergencia médica?",
   "A.yes": "Sí (Emergencia)",
   "A.no": "No",
-
   "emergency.title": "🚨 Esta herramienta no es para emergencias. Utilice los contactos a continuación.",
   "emergency.call911": "Llamar al 911",
   "emergency.call988": "Llamar al 988",
@@ -50,11 +47,9 @@
   "emergency.copesWhatIsList4": "Para emergencias psiquiátricas o emocionales",
   "reset": "Volver a la primera pregunta",
   "close": "Cerrar",
-
   "B.question": "B. ¿La persona que necesita ayuda tiene 18 años o más?",
   "B.adultYes": "Sí (Adulto)",
   "B.minorNo": "No (Menor)",
-
   "youth.title": "Apoyo 24 horas para jóvenes",
   "youth.yesTulsa": "YES Tulsa (5–17 años)",
   "youth.yesTulsaTitle": "YES Tulsa (5–17 años)",
@@ -74,11 +69,9 @@
   "youth.calmBtn": "Llamar al CALM Center (918-394-2256)",
   "youth.calmCallAria": "Llamar al CALM Center (918-394-2256)",
   "youth.note": "Para menores, es más apropiado conectarse directamente con los servicios especializados mencionados arriba en lugar de clínicas para adultos.",
-
   "C.question": "C. ¿Está en crisis y necesita hablar con alguien de inmediato?",
   "C.yes": "Sí (Necesito ayuda ahora)",
   "C.no": "No (Quiero buscar opciones con calma)",
-
   "adultCrisis.title": "Opciones de crisis 24 horas (Adultos)",
   "adultCrisis.copes.h": "① Llamar ahora / Respuesta móvil (COPES)",
   "adultCrisis.copes.subtitle": "Asesoría telefónica 24 horas y respuesta móvil a crisis en el condado de Tulsa si es necesario",
@@ -92,7 +85,6 @@
   "adultCrisis.urc.locationsBtn": "Ver todas las ubicaciones",
   "adultCrisis.urc.pill1": "👥 Hablar con alguien cara a cara",
   "adultCrisis.urc.pill2": "⏰ Disponible en cualquier momento (24/7)",
-
   "D.question": "D. ¿Cuál es la razón principal por la que busca ayuda hoy? (Seleccione una)",
   "D.options.detox": "Quiero dejar de consumir drogas o alcohol de forma segura (desintoxicación)",
   "D.options.psychosis": "Estoy experimentando alucinaciones o una confusión grave",
@@ -100,14 +92,12 @@
   "D.options.meds": "Necesito ayuda con medicamentos",
   "D.options.mhac": "No sé por dónde empezar / Quiero orientación (MHAOK)",
   "D.showResults": "Mostrar resultados",
-
   "highcare.title": "Se recomienda evaluación médica urgente",
   "highcare.body": "Según sus selecciones, las clínicas ambulatorias pueden no ser adecuadas. Por favor comuníquese con uno de los siguientes <strong>inmediatamente</strong>:",
   "highcare.copesBtn": "Llamar al 918-744-4800",
   "highcare.er": "Ir a la sala de emergencias de un hospital (ER)",
   "highcare.erDesc": "Si prefiere una evaluación en persona, vaya a la sala de emergencias más cercana.",
   "highcare.findEr": "Buscar una sala de emergencias cercana",
-
   "routine.title": "Conexión con servicios ambulatorios de rutina (Adultos)",
   "routine.body": "Las siguientes agencias ofrecen atención ambulatoria de rutina como consejería, manejo de medicamentos y apoyo para SUD.",
   "routine.title.therapy": "Opciones de consejería y terapia (Adultos)",
@@ -177,7 +167,6 @@
   "routine.chc.slide.levelF": "Nivel F (Precio completo)",
   "routine.chc.slide.note": "Esta es una estimación; el personal confirmará tu nivel final.",
   "routine.chc.pricingBtn": "Ver PDF de precios",
-
   "routine.mhac.full": "Centro de Asistencia de Salud Mental",
   "routine.mhac.desc": "Línea gratuita de referencias que brinda asistencia personalizada para encontrar la mejor opción de referencia y navegar el sistema de salud mental.",
   "routine.mhac.callBtn": "Llamar al 918-585-1213",
@@ -185,12 +174,10 @@
   "routine.mhac.pill.free": "Línea de referencias gratuita",
   "routine.mhac.pill.personal": "Asistencia personalizada",
   "routine.mhac.pill.navigation": "Orientación en el sistema",
-
   "reassure.title": "Costo, idioma y privacidad",
   "reassure.subtitle": "No está solo. El apoyo está disponible independientemente de su seguro o capacidad de pago. Muchos servicios son gratuitos o se ofrecen en una escala variable según los ingresos.",
   "reassure.lang": "Idiomas: Inglés y español disponibles. Se pueden organizar intérpretes gratuitos para otros idiomas. Por favor indique su idioma preferido al comunicarse.",
   "reassure.immigration": "Estatus migratorio: No se requiere prueba de ciudadanía para recibir servicios en crisis. Su privacidad estará protegida.",
-
   "faq.title": "Preguntas frecuentes",
   "faq.cost.q": "¿Cuánto cuesta?",
   "faq.cost.a": "Los servicios de crisis son gratuitos. Para la atención de rutina, hay descuentos según ingresos (escala variable). El costo no debe ser una barrera.",
@@ -198,5 +185,38 @@
   "faq.address.a": "Los servicios están disponibles incluso si no tiene vivienda. No se requiere una dirección fija.",
   "faq.privacy.q": "¿Mi información será confidencial?",
   "faq.privacy.a": "Los servicios son confidenciales y la información está protegida por la ley. Salvo que haya un riesgo de daño, no se compartirá información sin su consentimiento escrito.",
-  "faq.footer": "Aviso: Esta herramienta no es para emergencias. En caso de emergencia, llame directamente al 911 / 988 / COPES. Tenga en cuenta que la disponibilidad de servicios se limita al condado de Tulsa y áreas cercanas."
+  "faq.footer": "Aviso: Esta herramienta no es para emergencias. En caso de emergencia, llame directamente al 911 / 988 / COPES. Tenga en cuenta que la disponibilidad de servicios se limita al condado de Tulsa y áreas cercanas.",
+  "routine.fcs.rateBtn": "Verificar Mi Tarifa",
+  "routine.fcs.modalHeading": "Verificar Mi Tarifa",
+  "routine.fcs.modalIntro": "Responda algunas preguntas rápidas para estimar su nivel de tarifa deslizante. Un miembro del equipo de FCS confirmará los detalles con usted.",
+  "routine.fcs.step1.title": "Paso 1: Contexto del hogar",
+  "routine.fcs.step1.q": "¿Cuántas personas viven en su hogar?",
+  "routine.fcs.step2.title": "Paso 2: Período de ingresos",
+  "routine.fcs.step2.q": "¿Cómo prefiere calcular sus ingresos?",
+  "routine.fcs.step2.yearly": "Anual",
+  "routine.fcs.step2.monthly": "Mensual",
+  "routine.fcs.step2.biweekly": "Quincenal",
+  "routine.fcs.step2.weekly": "Semanal",
+  "routine.fcs.step3.title": "Paso 3: Cantidad de ingresos",
+  "routine.fcs.step3.q": "Ingrese la cantidad bruta total de sus documentos (W-2, talones de pago, etc.)",
+  "routine.fcs.step3.hint": "Asegúrese de usar el Ingreso Bruto (la cantidad antes de que se deduzcan los impuestos).",
+  "routine.fcs.docs.title": "Lista de verificación de ayuda de documentos",
+  "routine.fcs.docs.subtitle": "Verifique lo que tiene a mano:",
+  "routine.fcs.docs.paystubs": "Últimos 2 talones de pago",
+  "routine.fcs.docs.foodstamp": "Carta de cupones de alimentos",
+  "routine.fcs.docs.w2": "W-2",
+  "routine.fcs.slide.title": "Estimación del nivel de tarifa",
+  "routine.fcs.slide.label": "Estime su nivel de tarifa",
+  "routine.fcs.slide.calcBtn": "Mostrar nivel de tarifa",
+  "routine.fcs.slide.annualPlaceholder": "Ingreso anual: Aún no calculado.",
+  "routine.fcs.slide.perPersonPlaceholder": "Ingreso por persona: Aún no calculado.",
+  "routine.fcs.slide.resultPlaceholder": "Nivel de tarifa: Aún no calculado.",
+  "routine.fcs.slide.levelA": "Nivel A (Tarifa nominal)",
+  "routine.fcs.slide.levelB": "Nivel B",
+  "routine.fcs.slide.levelC": "Nivel C (50% de descuento)",
+  "routine.fcs.slide.levelD": "Nivel D",
+  "routine.fcs.slide.levelE": "Nivel E",
+  "routine.fcs.slide.levelF": "Nivel F (Precio completo)",
+  "routine.fcs.slide.note": "Esta es una estimación; el personal confirmará su tarifa final.",
+  "routine.fcs.pricingBtn": "Ver información de precios"
 }

@@ -149,7 +149,20 @@ class MHRoutine extends HTMLElement {
               <a class="btn call-btn" data-mode="all" href="tel:+19185879471" data-i18n="routine.fcs.callBtn">Call 918-587-9471</a>
               <a class="btn btn-outline site-btn" data-mode="therapy" href="https://www.fcsok.org/services/adult-and-family-counseling/" target="_blank" rel="noopener" data-i18n="routine.fcs.siteBtn">Start Counselling & Therapy</a>
               <a class="btn btn-outline apply-btn" data-mode="meds" href="https://www.fcsok.org/services/pharmacy/" target="_blank" rel="noopener" data-i18n="routine.fcs.applyBtn">Get Medication Help & Management</a>
+              <button
+                class="btn btn-outline"
+                type="button"
+                data-mode="all"
+                data-open="#${sectionId}-fcs-modal"
+                data-i18n="routine.fcs.rateBtn"
+              >
+                Check My Rate
+              </button>
             </div>
+            <mh-fcs-rate-modal
+              modal-id="${sectionId}-fcs-modal"
+              section-id="${sectionId}"
+            ></mh-fcs-rate-modal>
           </article>
 
           <!-- CHC -->

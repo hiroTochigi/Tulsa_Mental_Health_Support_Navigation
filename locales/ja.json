@@ -2,7 +2,6 @@
   "title": "タルサ市 メンタルヘルス支援ナビ",
   "meta.title": "タルサ市 メンタルヘルス支援ナビ（MVP）",
   "subtitle": "このツールは、あなたのニーズに合った支援につながるためのガイドです。いくつかの質問にお答えください（個人情報は保存しません）。",
-
   "banner.label": "緊急の連絡先バナー",
   "banner.urgent": "緊急のお願い：",
   "banner.emergencyHtml": "もしこれが<mark>医療的な緊急事態</mark>であるか、あなた自身または他者に差し迫った危険がある場合は、<span class=\"phone\">911</span>に電話してください。メンタルヘルスの危機にある場合は、",
@@ -17,11 +16,9 @@
   "banner.moreShow": "988を表示",
   "banner.moreHide": "閉じる",
   "banner.note": "24/7・無料・秘密厳守",
-
   "A.question": "A. あなた、または他の誰かが差し迫った危険にありますか？または医学的な緊急事態ですか？",
   "A.yes": "はい（緊急）",
   "A.no": "いいえ",
-
   "emergency.title": "🚨 このツールは緊急対応用ではありません。以下の連絡先をご利用ください。",
   "emergency.call911": "911 に電話",
   "emergency.call988": "988 に電話",
@@ -50,11 +47,9 @@
   "emergency.copesWhatIsList4": "精神科・感情面の緊急事態に対応",
   "reset": "最初の質問に戻る",
   "close": "閉じる",
-
   "B.question": "B. 助けを必要としているのは18歳以上の方ですか？",
   "B.adultYes": "はい（成人）",
   "B.minorNo": "いいえ（未成年）",
-
   "youth.title": "若年層向けの24時間支援",
   "youth.yesTulsa": "YES Tulsa（5～17歳）",
   "youth.yesTulsaTitle": "YES Tulsa（5～17歳対象）",
@@ -74,11 +69,9 @@
   "youth.calmBtn": "CALM Centerに電話（918-394-2256）",
   "youth.calmCallAria": "CALM Centerに電話（918-394-2256）",
   "youth.note": "未成年の方は、成人外来ではなく上記の専門支援に直接つながるのが適切です。",
-
   "C.question": "C. あなたは危機的な状況にあり、今すぐ、緊急に誰かと話す必要がありますか？",
   "C.yes": "はい（今すぐ支援が必要）",
   "C.no": "いいえ（落ち着いて相談先を探したい）",
-
   "adultCrisis.title": "24時間の緊急オプション（成人）",
   "adultCrisis.copes.h": "① 今すぐ電話/モバイル対応（COPES）",
   "adultCrisis.copes.subtitle": "タルサ郡の24時間電話相談と必要に応じたモバイル危機対応",
@@ -92,7 +85,6 @@
   "adultCrisis.urc.locationsBtn": "すべての場所を見る",
   "adultCrisis.urc.pill1": "👥 対面で相談できる",
   "adultCrisis.urc.pill2": "⏰ いつでも利用可（24時間365日）",
-
   "D.question": "D. 本日、助けを求めている主な理由は何ですか？（1つ選択してください）",
   "D.options.detox": "薬物やアルコールの使用を安全にやめたい（デトックス）",
   "D.options.psychosis": "幻覚や深刻な混乱を経験している",
@@ -100,14 +92,12 @@
   "D.options.meds": "薬のことで助けが必要",
   "D.options.mhac": "どこに相談すればよいか分からない・案内がほしい（MHAOK）",
   "D.showResults": "結果を表示",
-
   "highcare.title": "至急の医療評価を推奨",
   "highcare.body": "選択された内容から、外来クリニックでは対応困難な可能性があります。以下のいずれかに<strong>至急</strong>ご連絡ください。",
   "highcare.copesBtn": "918-744-4800 に電話",
   "highcare.er": "病院の救急外来（ER）を受診",
   "highcare.erDesc": "直接の対面診療を希望する場合は、お近くの救急外来へ向かってください。",
   "highcare.findEr": "近くのERを探す",
-
   "routine.title": "通常の外来サービスにつながる（成人）",
   "routine.body": "以下の機関は、カウンセリング、薬物療法管理、SUDサポートなどの定型外来を提供しています。",
   "routine.title.therapy": "カウンセリング／セラピーの相談先（成人）",
@@ -177,7 +167,6 @@
   "routine.chc.slide.levelF": "スライドF（通常料金）",
   "routine.chc.slide.note": "これは目安です。最終的な区分はスタッフが確認します。",
   "routine.chc.pricingBtn": "料金PDFを見る",
-
   "routine.mhac.full": "メンタルヘルス・アシスタンス・センター",
   "routine.mhac.desc": "無料のリファーラル専用窓口。個別に最適な紹介先探しをお手伝いし、メンタルヘルスの制度・窓口の案内を行います。",
   "routine.mhac.callBtn": "918-585-1213 に電話する",
@@ -185,12 +174,10 @@
   "routine.mhac.pill.free": "無料の紹介窓口",
   "routine.mhac.pill.personal": "個別サポート",
   "routine.mhac.pill.navigation": "制度ナビゲーション",
-
   "reassure.title": "費用・言語・プライバシーについて",
   "reassure.subtitle": "あなたは一人ではありません。保険の有無や支払い能力にかかわらず、利用できる支援があります。多くのサービスは無料、または収入に応じた割引料金で提供されています。",
   "reassure.lang": "言語：英語/スペイン語に対応。その他の言語は無料通訳を手配可能。連絡時に希望言語をお伝えください。",
   "reassure.immigration": "移民ステータス：緊急の危機支援サービスを受けるために市民権の証明は不要です。プライバシーは守られます。",
-
   "faq.title": "FAQ",
   "faq.cost.q": "費用はいくらかかりますか？",
   "faq.cost.a": "危機サービスは無料です。通常のケアでも、所得に応じた割引（スライディングスケール）が利用できます。費用が障壁になるべきではありません。",
@@ -198,5 +185,38 @@
   "faq.address.a": "ホームレス状態でもサービスの対象です。固定の住所は必要ありません。",
   "faq.privacy.q": "私の情報は秘密にされますか？",
   "faq.privacy.a": "サービスは機密であり、情報は法律で保護されます。危害のおそれがある場合を除き、書面での同意なしに情報が共有されることはありません。",
-  "faq.footer": "免責：このツールは緊急対応用ではありません。緊急時は 911 / 988 / COPES に直接連絡してください。地域の提供範囲（タルサ郡 ほか）にご注意ください。"
+  "faq.footer": "免責：このツールは緊急対応用ではありません。緊急時は 911 / 988 / COPES に直接連絡してください。地域の提供範囲（タルサ郡 ほか）にご注意ください。",
+  "routine.fcs.rateBtn": "料金を確認",
+  "routine.fcs.modalHeading": "料金を確認",
+  "routine.fcs.modalIntro": "いくつかの簡単な質問に答えて、スライディングスケール料金レベルを推定してください。FCSチームメンバーが詳細を確認します。",
+  "routine.fcs.step1.title": "ステップ1：世帯の状況",
+  "routine.fcs.step1.q": "世帯には何人住んでいますか？",
+  "routine.fcs.step2.title": "ステップ2：収入期間",
+  "routine.fcs.step2.q": "収入をどのように計算しますか？",
+  "routine.fcs.step2.yearly": "年間",
+  "routine.fcs.step2.monthly": "月間",
+  "routine.fcs.step2.biweekly": "隔週",
+  "routine.fcs.step2.weekly": "週間",
+  "routine.fcs.step3.title": "ステップ3：収入額",
+  "routine.fcs.step3.q": "書類（W-2、給与明細など）から総額を入力してください",
+  "routine.fcs.step3.hint": "税引前の総収入を使用してください。",
+  "routine.fcs.docs.title": "書類確認チェックリスト",
+  "routine.fcs.docs.subtitle": "手元にあるものを確認してください：",
+  "routine.fcs.docs.paystubs": "直近2回分の給与明細",
+  "routine.fcs.docs.foodstamp": "フードスタンプレター",
+  "routine.fcs.docs.w2": "W-2",
+  "routine.fcs.slide.title": "スライドレベル推定",
+  "routine.fcs.slide.label": "スライドレベルを推定",
+  "routine.fcs.slide.calcBtn": "スライドレベルを表示",
+  "routine.fcs.slide.annualPlaceholder": "年間収入：まだ計算されていません。",
+  "routine.fcs.slide.perPersonPlaceholder": "一人当たりの収入：まだ計算されていません。",
+  "routine.fcs.slide.resultPlaceholder": "スライドレベル：まだ計算されていません。",
+  "routine.fcs.slide.levelA": "スライドA（名目料金）",
+  "routine.fcs.slide.levelB": "スライドB",
+  "routine.fcs.slide.levelC": "スライドC（50％割引）",
+  "routine.fcs.slide.levelD": "スライドD",
+  "routine.fcs.slide.levelE": "スライドE",
+  "routine.fcs.slide.levelF": "スライドF（通常料金）",
+  "routine.fcs.slide.note": "これは推定値です。スタッフが最終的なスライドを確認します。",
+  "routine.fcs.pricingBtn": "料金情報を見る"
 }
