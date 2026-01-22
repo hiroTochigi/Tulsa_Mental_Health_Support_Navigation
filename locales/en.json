@@ -2,7 +2,6 @@
   "title": "City of Tulsa – Mental Health Support Navigator",
   "meta.title": "City of Tulsa – Mental Health Support Navigator (MVP)",
   "subtitle": "This tool is a guide to connect you with the support that meets your needs. Please answer a few questions (no personal information is stored).",
-
   "banner.label": "Emergency contacts banner",
   "banner.urgent": "Urgent:",
   "banner.emergencyHtml": "If this is a <mark>medical emergency</mark> or there is imminent danger to yourself or others, call <span class=\"phone\">911</span>. If you are in a mental health crisis:",
@@ -17,11 +16,9 @@
   "banner.moreShow": "Show 988",
   "banner.moreHide": "Hide",
   "banner.note": "24/7 · Free · Confidential",
-
   "A.question": "A. Is anyone in immediate danger, or is this a medical emergency?",
   "A.yes": "Yes (Emergency)",
   "A.no": "No",
-
   "emergency.title": "🚨 This tool is not for emergencies. Please use the contacts below.",
   "emergency.call911": "Call 911",
   "emergency.call988": "Call 988",
@@ -50,11 +47,9 @@
   "emergency.copesWhatIsList4": "For psychiatric or emotional emergencies",
   "reset": "Back to the first question",
   "close": "Close",
-
   "B.question": "B. Is the person needing help 18 or older?",
   "B.adultYes": "Yes (Adult)",
   "B.minorNo": "No (Minor)",
-
   "youth.title": "24-hour support for youth",
   "youth.yesTulsa": "YES Tulsa (ages 5–17)",
   "youth.yesTulsaTitle": "YES Tulsa (ages 5–17)",
@@ -74,11 +69,9 @@
   "youth.calmBtn": "Call CALM Center (918-394-2256)",
   "youth.calmCallAria": "Call CALM Center (918-394-2256)",
   "youth.note": "For minors, it is appropriate to connect directly with specialized youth services above instead of adult clinics.",
-
   "C.question": "C. Are you in crisis and need to talk to someone immediately?",
   "C.yes": "Yes (Need help now)",
   "C.no": "No (I want to calmly look for options)",
-
   "adultCrisis.title": "24-hour crisis options (Adults)",
   "adultCrisis.copes.h": "① Call now / Mobile response (COPES)",
   "adultCrisis.copes.subtitle": "24-hour phone counseling and mobile crisis response in Tulsa County if needed",
@@ -92,7 +85,6 @@
   "adultCrisis.urc.locationsBtn": "View All Locations",
   "adultCrisis.urc.pill1": "👥 Talk to someone face-to-face",
   "adultCrisis.urc.pill2": "⏰ Available anytime (24/7)",
-
   "D.question": "D. What is the primary reason you are seeking help today? (Select one)",
   "D.options.detox": "I want to safely stop using drugs or alcohol (detox)",
   "D.options.psychosis": "I am experiencing hallucinations or severe confusion",
@@ -101,14 +93,12 @@
   "D.options.mhac": "I don't know where to start / I want navigation (MHAOK)",
   "D.options.211": "I want help with basic needs (food, rent, utilities) or local social services",
   "D.showResults": "Show results",
-
   "highcare.title": "Urgent medical evaluation recommended",
   "highcare.body": "Based on your selections, outpatient clinics may not be appropriate. Please contact one of the following <strong>immediately</strong>:",
   "highcare.copesBtn": "Call 918-744-4800",
   "highcare.er": "Go to a hospital emergency room (ER)",
   "highcare.erDesc": "If you prefer in-person evaluation, go to your nearest ER.",
   "highcare.findEr": "Find an ER near me",
-
   "routine.title": "Connection to routine outpatient services (Adults)",
   "routine.body": "The following agencies provide routine outpatient care such as counseling, medication management, and SUD support.",
   "routine.title.therapy": "Counseling & therapy options (Adults)",
@@ -178,7 +168,6 @@
   "routine.chc.slide.levelF": "Slide F (Full Price)",
   "routine.chc.slide.note": "This is an estimate; staff will confirm your final slide.",
   "routine.chc.pricingBtn": "View Pricing PDF",
-
   "routine.mhac.full": "Mental Health Assistance Center",
   "routine.mhac.desc": "Free resource referral line offering one-on-one assistance to help find the best referral option and navigate the mental health system.",
   "routine.mhac.callBtn": "Call 918-585-1213",
@@ -186,10 +175,8 @@
   "routine.mhac.pill.free": "Free referral line",
   "routine.mhac.pill.personal": "1:1 assistance",
   "routine.mhac.pill.navigation": "Navigation support",
-
   "mhac.title": "Not sure where to start?",
   "mhac.body": "The Mental Health Assistance Center (MHAOK) helps you find the best next step and offers free guidance on programs and services. If you're unsure who to contact, start here.",
-
   "resources211.title": "2-1-1 Oklahoma / Local Resource Navigation",
   "resources211.body": "24/7, trained operators provide free referrals to public and private resources tailored to your situation. You can ask about mental health and the basics you need for daily life.",
   "resources211.name": "2-1-1 Oklahoma",
@@ -204,12 +191,10 @@
   "resources211.examples4": "Other: childcare support, senior services, legal help, and more.",
   "resources211.callBtn": "Call 2-1-1",
   "resources211.siteBtn": "Website",
-
   "reassure.title": "Cost, language, and privacy",
   "reassure.subtitle": "You are not alone. Support is available regardless of insurance status or ability to pay. Many services are free or offered on a sliding scale based on income.",
   "reassure.lang": "Language: English and Spanish available. Free interpreters can be arranged for other languages. Please state your preferred language when contacting.",
   "reassure.immigration": "Immigration status: Proof of citizenship is not required for crisis services. Your privacy will be protected.",
-
   "faq.title": "FAQ",
   "faq.cost.q": "How much does it cost?",
   "faq.cost.a": "Crisis services are free. For routine care, sliding scale discounts based on income are available. Cost should not be a barrier.",
@@ -217,5 +202,38 @@
   "faq.address.a": "Services are available even if you are homeless. A fixed address is not required.",
   "faq.privacy.q": "Will my information be kept confidential?",
   "faq.privacy.a": "Services are confidential and information is protected by law. Except where harm is imminent, no information will be shared without your written consent.",
-  "faq.footer": "Disclaimer: This tool is not for emergencies. In an emergency, call 911 / 988 / COPES directly. Note that service availability is limited to Tulsa County and surrounding areas."
+  "faq.footer": "Disclaimer: This tool is not for emergencies. In an emergency, call 911 / 988 / COPES directly. Note that service availability is limited to Tulsa County and surrounding areas.",
+  "routine.fcs.rateBtn": "Check My Rate",
+  "routine.fcs.modalHeading": "Check My Rate",
+  "routine.fcs.modalIntro": "Answer a few quick questions to estimate your sliding-fee level. An FCS team member will confirm details with you.",
+  "routine.fcs.step1.title": "Step 1: Household context",
+  "routine.fcs.step1.q": "How many people live in your household?",
+  "routine.fcs.step2.title": "Step 2: Income period",
+  "routine.fcs.step2.q": "How do you prefer to calculate your income?",
+  "routine.fcs.step2.yearly": "Yearly",
+  "routine.fcs.step2.monthly": "Monthly",
+  "routine.fcs.step2.biweekly": "Bi-weekly",
+  "routine.fcs.step2.weekly": "Weekly",
+  "routine.fcs.step3.title": "Step 3: Income amount",
+  "routine.fcs.step3.q": "Enter the total gross amount from your documents (W-2, pay stubs, etc.)",
+  "routine.fcs.step3.hint": "Be sure to use Gross Income (the amount before taxes are taken out).",
+  "routine.fcs.docs.title": "Document helper checklist",
+  "routine.fcs.docs.subtitle": "Check what you have on hand:",
+  "routine.fcs.docs.paystubs": "Last 2 Paystubs",
+  "routine.fcs.docs.foodstamp": "Food Stamp Letter",
+  "routine.fcs.docs.w2": "W-2",
+  "routine.fcs.slide.title": "Slide level estimate",
+  "routine.fcs.slide.label": "Estimate your slide level",
+  "routine.fcs.slide.calcBtn": "Show slide level",
+  "routine.fcs.slide.annualPlaceholder": "Annual income: Not calculated yet.",
+  "routine.fcs.slide.perPersonPlaceholder": "Income per person: Not calculated yet.",
+  "routine.fcs.slide.resultPlaceholder": "Slide level: Not calculated yet.",
+  "routine.fcs.slide.levelA": "Slide A (Nominal Fee)",
+  "routine.fcs.slide.levelB": "Slide B",
+  "routine.fcs.slide.levelC": "Slide C (50% Discount)",
+  "routine.fcs.slide.levelD": "Slide D",
+  "routine.fcs.slide.levelE": "Slide E",
+  "routine.fcs.slide.levelF": "Slide F (Full Price)",
+  "routine.fcs.slide.note": "This is an estimate; staff will confirm your final slide.",
+  "routine.fcs.pricingBtn": "View Pricing Info"
 }
