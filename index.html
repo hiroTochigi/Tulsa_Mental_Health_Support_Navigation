@@ -136,13 +136,13 @@
           </div>
         </section>
 
-        <mh-emergency id="emergency"></mh-emergency>
-        <mh-youth id="youth"></mh-youth>
-        <mh-adult-crisis id="adult-crisis"></mh-adult-crisis>
-        <mh-highcare id="highcare"></mh-highcare>
-        <mh-routine id="routine"></mh-routine>
-        <mh-mhac id="mhac"></mh-mhac>
-        <mh-211 id="resources211"></mh-211>
+        <mh-emergency id="emergency" class="hidden"></mh-emergency>
+        <mh-youth id="youth" class="hidden"></mh-youth>
+        <mh-adult-crisis id="adult-crisis" class="hidden"></mh-adult-crisis>
+        <mh-highcare id="highcare" class="hidden"></mh-highcare>
+        <mh-routine id="routine" class="hidden"></mh-routine>
+        <mh-mhac id="mhac" class="hidden"></mh-mhac>
+        <mh-211 id="resources211" class="hidden"></mh-211>
 
         <!-- 安心メッセージ -->
         <section class="step" aria-labelledby="reassure-h">
@@ -246,6 +246,10 @@
         const el = document.getElementById(id);
         if (el) {
           el.classList.remove("hidden");
+          // If parent is a custom element (e.g. MH-...), unhide it too
+          if (el.parentElement && el.parentElement.tagName && el.parentElement.tagName.toUpperCase().startsWith("MH-")) {
+            el.parentElement.classList.remove("hidden");
+          }
           el.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
