@@ -42,7 +42,7 @@ class MHRoutine extends HTMLElement {
      */
 
     this.innerHTML = `
-      <section id="${sectionId}" class="result" data-focus="${focus}" role="region" aria-labelledby="${sectionId}-title">
+      <section id="${sectionId}" class="result hidden" data-focus="${focus}" role="region" aria-labelledby="${sectionId}-title">
         <style>
           #${sectionId} .agency-list { display: block; }
           #${sectionId} .card header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }

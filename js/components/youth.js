@@ -15,7 +15,7 @@ class MHYouth extends HTMLElement {
     this.innerHTML = `
       <section
         id="${sectionId}"
-        class="result"
+        class="result hidden"
         role="region"
         aria-labelledby="${sectionId}-title"
       >
